@@ -109,14 +109,14 @@
 
 
   <meta name="description" content="问题描述给定两个已经排序好的数组，找出两个数组所有数据的中位数，时间不超过O(log(m+n)) 思路暴力排序直接想到的方法就是首先将两个数组合并，然后排序，找出中位数即可，简单粗暴，十分耿直。但是时间复杂度为$O(min(m,n) + (m + n)log(m+n))$， 死的也很直接。 归并稍微思考一下，既然数组已经排好顺序，那么就要用起来。显然这是一个归并排序中的归并操作，很简单，但是时间复">
-<meta name="keywords" content="算法,数组排序,中位数">
+<meta name="keywords" content="算法,二分查找,数组排序,中位数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="寻找两个排序数组中位数">
 <meta property="og:url" content="http://yoursite.com/2018/08/01/寻找两个排序数组中位数/index.html">
 <meta property="og:site_name" content="栖迟">
 <meta property="og:description" content="问题描述给定两个已经排序好的数组，找出两个数组所有数据的中位数，时间不超过O(log(m+n)) 思路暴力排序直接想到的方法就是首先将两个数组合并，然后排序，找出中位数即可，简单粗暴，十分耿直。但是时间复杂度为$O(min(m,n) + (m + n)log(m+n))$， 死的也很直接。 归并稍微思考一下，既然数组已经排好顺序，那么就要用起来。显然这是一个归并排序中的归并操作，很简单，但是时间复">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-01T13:28:14.854Z">
+<meta property="og:updated_time" content="2018-08-02T03:04:54.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="寻找两个排序数组中位数">
 <meta name="twitter:description" content="问题描述给定两个已经排序好的数组，找出两个数组所有数据的中位数，时间不超过O(log(m+n)) 思路暴力排序直接想到的方法就是首先将两个数组合并，然后排序，找出中位数即可，简单粗暴，十分耿直。但是时间复杂度为$O(min(m,n) + (m + n)log(m+n))$， 死的也很直接。 归并稍微思考一下，既然数组已经排好顺序，那么就要用起来。显然这是一个归并排序中的归并操作，很简单，但是时间复">
@@ -355,12 +355,24 @@
                 
               
 
-              <time title="Created: 2018-08-01 20:29:42 / Modified: 21:28:14" itemprop="dateCreated datePublished" datetime="2018-08-01T20:29:42+08:00">2018-08-01</time>
+              <time title="Created: 2018-08-01 20:29:42" itemprop="dateCreated datePublished" datetime="2018-08-01T20:29:42+08:00">2018-08-01</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-02 11:04:54" itemprop="dateModified" datetime="2018-08-02T11:04:54+08:00">2018-08-02</time>
               
             
           </span>
@@ -507,6 +519,8 @@
           
             <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           
+            <a href="/tags/二分查找/" rel="tag"><i class="fa fa-tag"></i> 二分查找</a>
+          
             <a href="/tags/数组排序/" rel="tag"><i class="fa fa-tag"></i> 数组排序</a>
           
             <a href="/tags/中位数/" rel="tag"><i class="fa fa-tag"></i> 中位数</a>
@@ -531,6 +545,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/02/Find-K-th-Smallest-Pair-Distance/" rel="prev" title="Find K-th Smallest Pair Distance">
+                Find K-th Smallest Pair Distance <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -603,7 +621,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -655,7 +673,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

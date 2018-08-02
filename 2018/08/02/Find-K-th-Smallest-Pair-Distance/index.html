@@ -108,24 +108,25 @@
 
 
 
-  <meta name="description" content="This is my first blog ! Thanks for your  visiting!">
+  <meta name="description" content="题目描述Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。 Input:nums = [1,3,1]k = 1Output:">
+<meta name="keywords" content="算法,二分查找">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello-World">
-<meta property="og:url" content="http://yoursite.com/2018/07/30/Hello-World/index.html">
+<meta property="og:title" content="Find K-th Smallest Pair Distance">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/Find-K-th-Smallest-Pair-Distance/index.html">
 <meta property="og:site_name" content="栖迟">
-<meta property="og:description" content="This is my first blog ! Thanks for your  visiting!">
+<meta property="og:description" content="题目描述Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。 Input:nums = [1,3,1]k = 1Output:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-30T10:56:46.437Z">
+<meta property="og:updated_time" content="2018-08-02T03:10:48.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello-World">
-<meta name="twitter:description" content="This is my first blog ! Thanks for your  visiting!">
+<meta name="twitter:title" content="Find K-th Smallest Pair Distance">
+<meta name="twitter:description" content="题目描述Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。 Input:nums = [1,3,1]k = 1Output:">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/30/Hello-World/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/02/Find-K-th-Smallest-Pair-Distance/"/>
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>Hello-World | 栖迟</title>
+  <title>Find K-th Smallest Pair Distance | 栖迟</title>
   
 
 
@@ -312,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/30/Hello-World/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/Find-K-th-Smallest-Pair-Distance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Haines Luo">
@@ -329,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello-World
+          <h1 class="post-title" itemprop="name headline">Find K-th Smallest Pair Distance
               
             
           </h1>
@@ -354,7 +355,7 @@
                 
               
 
-              <time title="Created: 2018-07-30 16:24:40 / Modified: 18:56:46" itemprop="dateCreated datePublished" datetime="2018-07-30T16:24:40+08:00">2018-07-30</time>
+              <time title="Created: 2018-08-02 10:52:20 / Modified: 11:10:48" itemprop="dateCreated datePublished" datetime="2018-08-02T10:52:20+08:00">2018-08-02</time>
             
 
             
@@ -376,7 +377,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
 
                 
                 
@@ -391,8 +392,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/30/Hello-World/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/07/30/Hello-World/" itemprop="commentCount"></span>
+                <a href="/2018/08/02/Find-K-th-Smallest-Pair-Distance/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/08/02/Find-K-th-Smallest-Pair-Distance/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,7 +401,7 @@
 
           
           
-             <span id="/2018/07/30/Hello-World/" class="leancloud_visitors" data-flag-title="Hello-World">
+             <span id="/2018/08/02/Find-K-th-Smallest-Pair-Distance/" class="leancloud_visitors" data-flag-title="Find K-th Smallest Pair Distance">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -431,8 +432,22 @@
       
 
       
-        <p>This is my first blog ! Thanks for your  visiting!</p>
-
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an integer array, return the k-th smallest <strong>distance</strong> among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。</p>
+<p><strong>Input:</strong><br>nums = [1,3,1]<br>k = 1<br><strong>Output: 0</strong><br><strong>Explanation:</strong><br>Here are all the pairs:<br>(1,3) -&gt; 2<br>(1,1) -&gt; 0<br>(3,1) -&gt; 2<br>Then the 1st smallest distance pair is (1,1), and its distance is 0.</p>
+<p><strong>Note:</strong></p>
+<ol>
+<li><code>2 &lt;= len(nums) &lt;= 10000</code>.</li>
+<li><code>0 &lt;= nums[i] &lt; 1000000</code>.</li>
+<li><code>1 &lt;= k &lt;= len(nums) * (len(nums) - 1) / 2</code>.</li>
+</ol>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><ol>
+<li>对数组进行排序</li>
+<li>对数对的距离进行二分</li>
+<li>统计距离比中点小的数对数</li>
+</ol>
+<h1 id="失败案例"><a href="#失败案例" class="headerlink" title="失败案例"></a>失败案例</h1><p>题目不要求去重，hashtable思路不对</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">smallestDistancePair</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">          <span class="comment">/* hashtable:</span></span><br><span class="line"><span class="comment">         * 失败，不符合题意</span></span><br><span class="line"><span class="comment">         * 题目为找出所有配对，不进行去重！！！</span></span><br><span class="line"><span class="comment">         * 在这样的(n * (n - 1)) / 2个元素对中找第k小</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; hash_table;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; sol_hash;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;item : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hash_table.find(item) == hash_table.end()) hash_table[item] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> hash_table[item] += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> iter = hash_table.begin() ; iter != hash_table.end() ; ++iter) &#123;</span><br><span class="line">            <span class="keyword">if</span> (iter-&gt;second &gt; <span class="number">1</span> &amp;&amp; sol_hash.find(<span class="number">0</span>) == sol_hash.end()) &#123;</span><br><span class="line">                sol_hash[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (iter != hash_table.begin()) &#123;</span><br><span class="line">                <span class="keyword">int</span> local_gap = iter-&gt;first - (--iter)-&gt;first;</span><br><span class="line">                <span class="keyword">if</span> (sol_hash.find(local_gap) == sol_hash.end()) &#123;</span><br><span class="line">                    sol_hash[local_gap] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                iter++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">auto</span> iter = sol_hash.begin();</span><br><span class="line">        <span class="keyword">while</span>(--k) iter++;</span><br><span class="line">        <span class="keyword">return</span> iter-&gt;first;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">smallestDistancePair</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/*思路</span></span><br><span class="line"><span class="comment">         * 1. 对数组排序</span></span><br><span class="line"><span class="comment">         * 2. 对数对的距离进行二分</span></span><br><span class="line"><span class="comment">         * 3. 统计距离比中点小的数对数</span></span><br><span class="line"><span class="comment">         * */</span></span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> hi = nums[nums.size() - <span class="number">1</span>] - nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">while</span> (lo &lt; hi) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> left = <span class="number">0</span>, count = <span class="number">0</span> ;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> right = <span class="number">0</span> ; right &lt; nums.size(); ++right ) &#123;</span><br><span class="line">                <span class="keyword">while</span>(nums[right] - nums[left] &gt; mid) left++;</span><br><span class="line">                count += right - left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (count &gt;= k) hi = mid;</span><br><span class="line">            <span class="keyword">else</span> lo = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Solution s;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; t = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s.smallestDistancePair(t, <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -460,6 +475,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+            <a href="/tags/二分查找/" rel="tag"><i class="fa fa-tag"></i> 二分查找</a>
+          
+        </div>
+      
 
       
       
@@ -469,15 +492,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/01/寻找两个排序数组中位数/" rel="next" title="寻找两个排序数组中位数">
+                <i class="fa fa-chevron-left"></i> 寻找两个排序数组中位数
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/30/Taskonomy论文学习/" rel="prev" title="Taskonomy论文学习">
-                Taskonomy论文学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -525,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -645,6 +677,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#失败案例"><span class="nav-number">3.</span> <span class="nav-text">失败案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -859,6 +907,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
