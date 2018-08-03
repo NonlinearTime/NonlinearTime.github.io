@@ -1,0 +1,8 @@
+http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/
+http://qichiblog.cn/2018/08/03/Academic-Vocabulary-in-Cs/
+http://qichiblog.cn/2018/08/02/2018年浙江大学暑期夏令营学习记录/
+http://qichiblog.cn/2018/08/02/Find-K-th-Smallest-Pair-Distance/
+http://qichiblog.cn/2018/08/01/寻找两个排序数组中位数/
+http://qichiblog.cn/2018/07/31/深度迁移学习/
+http://qichiblog.cn/2018/07/30/Taskonomy论文学习/
+http://qichiblog.cn/2018/07/30/Hello-World/
