@@ -108,20 +108,30 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="栖迟">
-<meta property="og:url" content="http://qichiblog.cn/archives/index.html">
+  <meta name="description" content="在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。 对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。 Deep Domain Confusion正是基于">
+<meta name="keywords" content="深度学习,迁移学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度迁移学习：DDC方法">
+<meta property="og:url" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/index.html">
 <meta property="og:site_name" content="栖迟">
+<meta property="og:description" content="在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。 对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。 Deep Domain Confusion正是基于">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/domain_diff.png">
+<meta property="og:image" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/mmd.png">
+<meta property="og:image" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/DDC_Loss.png">
+<meta property="og:image" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/Arch.png">
+<meta property="og:updated_time" content="2018-08-03T06:51:53.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="栖迟">
+<meta name="twitter:title" content="深度迁移学习：DDC方法">
+<meta name="twitter:description" content="在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。 对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。 Deep Domain Confusion正是基于">
+<meta name="twitter:image" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/domain_diff.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://qichiblog.cn/archives/"/>
+  <link rel="canonical" href="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/"/>
 
 
 
@@ -131,7 +141,7 @@
   };
 </script>
 
-  <title>Archive | 栖迟</title>
+  <title>深度迁移学习：DDC方法 | 栖迟</title>
   
 
 
@@ -178,7 +188,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <!--Github-start-->
@@ -255,7 +265,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
@@ -288,365 +298,240 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Haines Luo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="栖迟">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">深度迁移学习：DDC方法
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-03 13:46:42 / Modified: 14:51:53" itemprop="dateCreated datePublished" datetime="2018-08-03T13:46:42+08:00">2018-08-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-        Um..! 8 posts in total. Keep on posting.
-      </span>
-      
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/迁移学习/" itemprop="url" rel="index"><span itemprop="name">迁移学习</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/03/深度迁移学习：DDC方法/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/08/03/深度迁移学习：DDC方法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2018/08/03/深度迁移学习：DDC方法/" class="leancloud_visitors" data-flag-title="深度迁移学习：DDC方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/03/深度迁移学习：DDC方法/" itemprop="url">
-              
-                <span itemprop="name">深度迁移学习：DDC方法</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-03T13:46:42+08:00"
-              content="2018-08-03" >
-          08-03
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/03/Academic-Vocabulary-in-Cs/" itemprop="url">
-              
-                <span itemprop="name">Academic Vocabulary in Cs</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-03T10:14:27+08:00"
-              content="2018-08-03" >
-          08-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/02/2018年浙江大学暑期夏令营学习记录/" itemprop="url">
-              
-                <span itemprop="name">2018年浙江大学暑期夏令营学习记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-02T18:31:16+08:00"
-              content="2018-08-02" >
-          08-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/02/Find-K-th-Smallest-Pair-Distance/" itemprop="url">
-              
-                <span itemprop="name">Find K-th Smallest Pair Distance</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-02T10:52:20+08:00"
-              content="2018-08-02" >
-          08-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。</p>
+<p>对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。</p>
+<p>Deep Domain Confusion正是基于这一思想，同时优化分类损失和领域之间的差异损失，从而达到领域自适应的目的。作者提出了一种新的CNN架构，通过引入了一层自适应层，来最小化领域之间的差异。作者使用MMD方法来衡量源领域和目标领域之间的差异。</p>
+<p><img src="/2018/08/03/深度迁移学习：DDC方法/domain_diff.png" alt=""></p>
+<p>为了最小化两个领域之间的距离，DDC使用Maximum Mean Discrepancy(MMD)方法对距离进行衡量。定义了一个表现形式(representation)，$\phi (\cdot)$，作用域源域的样本以及目标域的用别样本之上。两个领域之间的距离如下计算：</p>
+<p><img src="/2018/08/03/深度迁移学习：DDC方法/mmd.png" alt=""></p>
+<p>在考虑到距离损失之后，网络的损失修改成如下形式：</p>
+<p><img src="/2018/08/03/深度迁移学习：DDC方法/DDC_Loss.png" alt=""></p>
+<p>作者通过加入一个自适应层(Adaptation Layer)来完成源领域向目标领域的迁移，实际上是一个维度较低 的全连接层。作者的直觉是，更低维度可以用来规范化源分类器的训练并且避免过拟合。</p>
+<p><img src="/2018/08/03/深度迁移学习：DDC方法/Arch.png" alt=""></p>
+<p>主要有两个问题需要确定：在哪一层放入自适应层，以及自适应层的维度应该设为多少。</p>
+<p>第一个问题，作者通过计算source和target在不同层的表达之间的MMD数值，选择了数值最小的位置。</p>
+<p>第二个问题，作者通过网格搜索(Grid Search)方法，确定了能够最小化MMD的维度。</p>
+<p>最后，所有数据用于计算domain loss，有label的数据用于计算classification Loss。source CNN和target CNN 网络参数共享。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/01/寻找两个排序数组中位数/" itemprop="url">
-              
-                <span itemprop="name">寻找两个排序数组中位数</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-01T20:29:42+08:00"
-              content="2018-08-01" >
-          08-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/31/深度迁移学习/" itemprop="url">
-              
-                <span itemprop="name">深度迁移学习</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-31T20:44:03+08:00"
-              content="2018-07-31" >
-          07-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/30/Taskonomy论文学习/" itemprop="url">
-              
-                <span itemprop="name">Taskonomy论文学习</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-30T19:24:26+08:00"
-              content="2018-07-30" >
-          07-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/30/Hello-World/" itemprop="url">
-              
-                <span itemprop="name">Hello-World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-30T16:24:40+08:00"
-              content="2018-07-30" >
-          07-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    <div>
+    
+    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+
+</div>
+    
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+          
+            <a href="/tags/迁移学习/" rel="tag"><i class="fa fa-tag"></i> 迁移学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/03/Academic-Vocabulary-in-Cs/" rel="next" title="Academic Vocabulary in Cs">
+                <i class="fa fa-chevron-left"></i> Academic Vocabulary in Cs
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -937,6 +822,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -1003,6 +892,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
