@@ -200,7 +200,7 @@
     </div>
     
       
-        <p class="site-subtitle">但行好事，莫问前程</p>
+        <h1 class="site-subtitle" itemprop="description">但行好事，莫问前程</h1>
       
     
   </div>
@@ -326,14 +326,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2018/08/03/深度迁移学习：DDC方法/" itemprop="url">
                   深度迁移学习：DDC方法
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -355,7 +355,7 @@
                 
               
 
-              <time title="Created: 2018-08-03 13:46:42 / Modified: 14:51:53" itemprop="dateCreated datePublished" datetime="2018-08-03T13:46:42+08:00">2018-08-03</time>
+              <time title="Created: 2018-08-03 13:46:42 / Modified: 17:21:53" itemprop="dateCreated datePublished" datetime="2018-08-03T13:46:42+08:00">2018-08-03</time>
             
 
             
@@ -437,13 +437,13 @@
             <p>在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。</p>
 <p>对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。</p>
 <p>Deep Domain Confusion正是基于这一思想，同时优化分类损失和领域之间的差异损失，从而达到领域自适应的目的。作者提出了一种新的CNN架构，通过引入了一层自适应层，来最小化领域之间的差异。作者使用MMD方法来衡量源领域和目标领域之间的差异。</p>
-<p><img src="2018-08-03-深度迁移学习：DDC方法/domain_diff.png" alt=""></p>
+<p><img src="/2018/08/03/深度迁移学习：DDC方法/domain_diff.png" alt=""></p>
 <p>为了最小化两个领域之间的距离，DDC使用Maximum Mean Discrepancy(MMD)方法对距离进行衡量。定义了一个表现形式(representation)，$\phi (\cdot)$，作用域源域的样本以及目标域的用别样本之上。两个领域之间的距离如下计算：</p>
-<p><img src="2018-08-03-深度迁移学习：DDC方法/mmd.png" alt=""></p>
+<p><img src="/2018/08/03/深度迁移学习：DDC方法/mmd.png" alt=""></p>
 <p>在考虑到距离损失之后，网络的损失修改成如下形式：</p>
-<p><img src="2018-08-03-深度迁移学习：DDC方法/DDC_Loss.png" alt=""></p>
+<p><img src="/2018/08/03/深度迁移学习：DDC方法/DDC_Loss.png" alt=""></p>
 <p>作者通过加入一个自适应层(Adaptation Layer)来完成源领域向目标领域的迁移，实际上是一个维度较低 的全连接层。作者的直觉是，更低维度可以用来规范化源分类器的训练并且避免过拟合。</p>
-<p><img src="2018-08-03-深度迁移学习：DDC方法/Arch.png" alt=""></p>
+<p><img src="/2018/08/03/深度迁移学习：DDC方法/Arch.png" alt=""></p>
 <p>主要有两个问题需要确定：在哪一层放入自适应层，以及自适应层的维度应该设为多少。</p>
 <p>第一个问题，作者通过计算source和target在不同层的表达之间的MMD数值，选择了数值最小的位置。</p>
 <p>第二个问题，作者通过网格搜索(Grid Search)方法，确定了能够最小化MMD的维度。</p>
@@ -522,14 +522,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2018/08/03/Academic-Vocabulary-in-Cs/" itemprop="url">
                   Academic Vocabulary in Cs
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -720,14 +720,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2018/08/02/2018年浙江大学暑期夏令营学习记录/" itemprop="url">
                   2018年浙江大学暑期夏令营学习记录
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -941,14 +941,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2018/08/02/Find-K-th-Smallest-Pair-Distance/" itemprop="url">
                   Find K-th Smallest Pair Distance
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1138,14 +1138,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2018/08/01/寻找两个排序数组中位数/" itemprop="url">
                   寻找两个排序数组中位数
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1375,14 +1375,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2018/07/31/深度迁移学习/" itemprop="url">
                   深度迁移学习
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1497,10 +1497,10 @@
           
             <h1 id="深度迁移学习"><a href="#深度迁移学习" class="headerlink" title="深度迁移学习"></a>深度迁移学习</h1><p>对比传统的非深度迁移学习方法，深度迁移学习直接提升了在不同任务上的学习效果，并且，由于深度学习直接对原始数据进行学习，其对于费深度方法还有两个优势：自动化地提取更具有表现力的特征，以及满足了实际应用中的端到端(End-to-End)的需求。</p>
 <p>近年来，以生成对抗网络(GAN)为代表的对抗学习吸引了很多研究者的目光。基于GAN的各种变体网络不断涌现。对抗生成网络对比传统的深度神经网络，极大的提升了学习效果。因此，基于对抗网络的迁移学习，也是一个热门的研究点。</p>
-<p><img src="2018-07-31-深度迁移学习/深度与非深度迁移学习方法对比.png" alt=""></p>
+<p><img src="/2018/07/31/深度迁移学习/深度与非深度迁移学习方法对比.png" alt=""></p>
 <p>本文参考transfer_learning_tutorial， 作为深度迁移学习的学习笔记，以供日后查阅。</p>
 <h2 id="深度网络的可迁移性"><a href="#深度网络的可迁移性" class="headerlink" title="深度网络的可迁移性"></a>深度网络的可迁移性</h2><p>神经网络具有良好的层次结构，这为解释深度神经网络提供了一种思路，即：假设一个网络要识别一只猫，那么一开始它只能检测到一些边边角角的东西，和猫根本没有关系。然后可能会检测到一些线条和圆形。慢慢地，可以检测到由猫的区域；接着是猫猫脸等等。</p>
-<p><img src="2018-07-31-深度迁移学习/神经网络的层次结构.png" alt=""></p>
+<p><img src="/2018/07/31/深度迁移学习/神经网络的层次结构.png" alt=""></p>
 <p>概括来说，神经网络的前几层学习到的都是通用的特征，随着网络层次的加深，后面的网络更偏重于学习任务特定的特征。</p>
 <p>那么，如何的值哪些层能够学习到general feature，哪些层可以学习到specific feature呢？进一步，如果应用与迁移学习，如何决定迁移哪些层、固定那些层？</p>
 <p>2014年康奈尔大学的Jason Yosinski等人率先进行了深度神经网络的可迁移性研究，文章通过实验得到了以下几个结论：</p>
@@ -1533,7 +1533,7 @@
 <li>预训练好的模型通常是在大数据集上进行，无形中扩充了我们的训练数据，使得模型鲁棒性更好、泛化能力更好</li>
 <li>Finetune实现简单，使得我们只关注自己的任务即可</li>
 </ul>
-<p><img src="2018-07-31-深度迁移学习/finetune.png" alt=""></p>
+<p><img src="/2018/07/31/深度迁移学习/finetune.png" alt=""></p>
 <h2 id="深度网络自适应"><a href="#深度网络自适应" class="headerlink" title="深度网络自适应"></a>深度网络自适应</h2><h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><p>finetune的基本假设是：训练数据和测试数据服从相同的数据分布。这在迁移学习中是不成立的。因此，需要针对深度网络开发出更好的方法实质更好地完成迁移学习任务。</p>
 <p>许多深度学习方法开发出了自适应层$Adaptation Layer$来完成源域到目标域数据的自适应。</p>
 <p>深度网络的自适应主要完成两部分的工作：</p>
@@ -1545,7 +1545,7 @@
 <script type="math/tex; mode=display">\cal l = \cal l_c(\cal D_s, y_s) + \lambda \cal l_A(\cal D_s, \cal D_t)</script><p>其中，$\cal l$表示网络的最终损失，$\cal l_c(\cal D_s, y_s)$表示网络在有标注的数据(大部分是源域)上的常规分类损失，这与普通深度网络完全一致。$\cal l_A(\cal D_s , \cal D_t)$ 表示网络的自适应损失。$\lambda$ 是权衡两部分的权重参数。</p>
 <h3 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h3><h4 id="DDC方法"><a href="#DDC方法" class="headerlink" title="DDC方法"></a>DDC方法</h4><p>由加州大学伯克利分校的Tzeng等人首先提出，在ImageNet数据集上训练好的AlexNet网络上进行自适应学习。</p>
 <p>DDC固定了AlexNet的前7层，在第8层(分类器之前)加入了自适应的度量。自适应度量方法采用了广泛使用的MMD准则。DDC 方法的损失函数表示为：</p>
-<script type="math/tex; mode=display">\cal l = \cal l_c(D_s,y_s  + \lambda MMD^2(D_s, D_t))</script><p><img src="2018-07-31-深度迁移学习/DDC.png" alt=""></p>
+<script type="math/tex; mode=display">\cal l = \cal l_c(D_s,y_s  + \lambda MMD^2(D_s, D_t))</script><p><img src="/2018/07/31/深度迁移学习/DDC.png" alt=""></p>
 <p>DDC方法的作者经过多次试验，在不同的层进行了尝试，最终得出结论，在分类器前一层加入自适应可以达到最好的效果。</p>
 <h4 id="DAN方法"><a href="#DAN方法" class="headerlink" title="DAN方法"></a>DAN方法</h4><p>2015年清华大学的龙明盛等人发表DAN方法，对DDC方法进行了几个方面的扩展：</p>
 <ul>
@@ -1555,14 +1555,14 @@
 </ul>
 <p>为何选择适配三层？Jason在文章中说，AlexNet网络的迁移能力在这三层开始特别task-specific，所以要着重适配。而其余网络是否如此需要实验。</p>
 <p>MK-MMD 的多核表示形式：</p>
-<p><img src="2018-07-31-深度迁移学习/MK-MMD.png" alt=""></p>
+<p><img src="/2018/07/31/深度迁移学习/MK-MMD.png" alt=""></p>
 <p>DAN优化目标：</p>
-<p><img src="2018-07-31-深度迁移学习/DAN.png" alt="DAN"></p>
+<p><img src="/2018/07/31/深度迁移学习/DAN.png" alt="DAN"></p>
 <p>其中，$\theta $表示网络中所有权重和bias参数，是用来学习的目标。其中，$l_1, l_2$分别是6和8，表示网络适配是从第六层到第八层。$x_a、n_a$表示源域和目标域中所有有标注的数据的集合。$J(\cdot)$ 定义了一个损失函数。</p>
 <p>DAN网络结构如下：</p>
-<p><img src="2018-07-31-深度迁移学习/DAN_Arch.png" alt=""> </p>
+<p><img src="/2018/07/31/深度迁移学习/DAN_Arch.png" alt=""> </p>
 <h4 id="学习策略"><a href="#学习策略" class="headerlink" title="学习策略"></a>学习策略</h4><p>DAN主要学习两大类参数：学习网络参数$\Theta $和MMD的$\beta$</p>
-<p><img src="2018-07-31-深度迁移学习/DAN_learning.png" alt=""></p>
+<p><img src="/2018/07/31/深度迁移学习/DAN_learning.png" alt=""></p>
 <h3 id="同时迁移领域和任务"><a href="#同时迁移领域和任务" class="headerlink" title="同时迁移领域和任务"></a>同时迁移领域和任务</h3><p>DCC作者Tzeng在2015年扩展了DCC方法，提出领域和任务同时迁移的方法，网络要进行两部分的迁移：</p>
 <ul>
 <li>domain transfer，即适配分布，特别是适配marginal distribution，但是没有考虑类别信息。</li>
@@ -1570,16 +1570,16 @@
 </ul>
 <p>作者提出joint CNN architecture for domain and task transfer。最大的创新点在于，现有的方法都是在domain classifier加上一个domain confusion，而作者认为，忽略了类别之间的联系，所以提出还要加上一个soft label loss。即在source 和target进行适配的时候，也要根据source的类别分布情况进行调整target的。</p>
 <p>文章的方法就是把这两个loss结合到一个新的CNN网络上，利用AlexNet的结构修改而成。总的Loss：</p>
-<p><img src="2018-07-31-深度迁移学习/jointCNN_Loss.png" alt=""></p>
+<p><img src="/2018/07/31/深度迁移学习/jointCNN_Loss.png" alt=""></p>
 <p>上式由三部分组成：普通训练的Loss，domain adaptation损失，以及新加的soft label 的loss,其只作用于target上。</p>
-<p><img src="2018-07-31-深度迁移学习/joint CNN.png" alt=""></p>
+<p><img src="/2018/07/31/深度迁移学习/joint CNN.png" alt=""></p>
 <p><strong>soft label loss</strong> </p>
 <p>在网络对source进行训练的时候，把source的每一个样本处于每一个类的概率记下来，然后对于所有样本，属于每一个类的概率都可以通过均值得到。这样的目的是：根据source中的类别分布关系，对target做响应的约束。</p>
-<p><img src="2018-07-31-深度迁移学习/softlabel.png" alt=""></p>
+<p><img src="/2018/07/31/深度迁移学习/softlabel.png" alt=""></p>
 <h4 id="深度联合分布自适应"><a href="#深度联合分布自适应" class="headerlink" title="深度联合分布自适应"></a>深度联合分布自适应</h4><p>DAN作者，清华大学龙明盛在2017年提出了JAN方法，在深度网络中同时进行联合分布的自适应和对抗学习。将只对数据进行自适应的方式推广到了对类别进行自适应，提出了JMMD度量(Joint MMD)。</p>
-<p><img src="2018-07-31-深度迁移学习/JAN.png" alt=""></p>
+<p><img src="/2018/07/31/深度迁移学习/JAN.png" alt=""></p>
 <h4 id="AdaBN"><a href="#AdaBN" class="headerlink" title="AdaBN"></a>AdaBN</h4><p>在归一化层加入统计特征的适配，从而完成迁移</p>
-<p><img src="2018-07-31-深度迁移学习/AdaBN.png" alt=""></p>
+<p><img src="/2018/07/31/深度迁移学习/AdaBN.png" alt=""></p>
 <h2 id="深度对抗网络迁移"><a href="#深度对抗网络迁移" class="headerlink" title="深度对抗网络迁移"></a>深度对抗网络迁移</h2><h3 id="基本思路-1"><a href="#基本思路-1" class="headerlink" title="基本思路"></a>基本思路</h3><p>GAN的目标很明确：生成训练样本。而在迁移学习中，存在一个源领域和目标领域，因此，我们可以免去生成样本的过程，直接将其中一个领域的数据(通常是目标域)当做是生成的样本。此时，生成器的只能发生变化，不再生成新的样本，而是扮演了特征提取的功能：不断学习领域数据的特征，使得判别器无法对两个领域进行分辨，这样，原来的生成器也可以成为特征提取器(Feature Extractor)。</p>
 <p>通常使用$G_f $表示特征提取器，用$G_d$表示判别器。</p>
 <p>深度对抗网络的损失也有两部分构成：网络的训练损失$l_c$和领域判别损失$l_d$：</p>
@@ -1657,14 +1657,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2018/07/30/Taskonomy论文学习/" itemprop="url">
                   Taskonomy论文学习
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1777,7 +1777,7 @@
       
         
           
-            <p><img src="2018-07-30-Taskonomy论文学习/head_pic.png" alt=""></p>
+            <p><img src="/2018/07/30/Taskonomy论文学习/head_pic.png" alt=""></p>
 <h1 id="CVPR-2018-best-paper-Taskonomy-论文学习总结"><a href="#CVPR-2018-best-paper-Taskonomy-论文学习总结" class="headerlink" title="CVPR 2018 best paper : Taskonomy 论文学习总结"></a>CVPR 2018 best paper : Taskonomy 论文学习总结</h1><p>当前，计算机视觉在细分领域似乎已经无孔不入， 每一个小的领域，都有人做了十分充足的研究。但是，少有人关注各个不同的视觉任务之间的联系，不同视觉任务是否具有一定的联系呢？他们之间是否是毫不相关的呢？作者在这个方面做出了一定的探索，尽管采用的方法十分朴素，但是完整地完成了量化视觉任务之间的联系的任务，并根据其成果确定了一种训练方式，得到了很好的效果。同时，作者提供了一个数量十分巨大的数据集，这是难能可贵的。</p>
 <h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>视觉任务之间是否具有联系？例如，能否通过计算发现来得到图的深度信息？种种迹象，例如迁移学习，乐观的显示这种联系是存在的。并且，视觉任务之间的联系具有极为珍贵的价值：通过重用相关的有监督训练结果，以及少量的额外数据，有效降低在单个视觉任务系统的复杂度。</p>
 <p>作者提出了一种完全量化的方法，用来对视觉任务空间结构建立模型。通过找出视觉任务之间的“迁移学习依赖性”，构建一个用于迁移学习的量化“taxonomic”图，从而减少了对于有标签数据量的需求。作者提供了一系列的公寓，用于计算和探索taxonomical structure， 以在不同的数据集上指定高效的监督学习策略。</p>
@@ -1845,7 +1845,7 @@
 <h3 id="Step-4-Computing-the-Clobal-Taxonomy"><a href="#Step-4-Computing-the-Clobal-Taxonomy" class="headerlink" title="Step 4: Computing the Clobal Taxonomy"></a>Step 4: Computing the Clobal Taxonomy</h3><p>基于affinity matrix 求得如何最有效地学习一组感兴趣的任务。将其抽象成一个subgraph selection问题：</p>
 <p>选择一些任务从零学习，剩下的任务用少量数据进行迁移学习，具体的迁移学习策略由subgraoh中的edge决定。</p>
 <p>对于一条有向边，起始点代表从零学习的一个任务，重点代表要进行迁移的目标任务。基于此，通过解BIP最优化问题得到最优解：</p>
-<p><img src="2018-07-30-Taskonomy论文学习/BIP.png" alt=""></p>
+<p><img src="/2018/07/30/Taskonomy论文学习/BIP.png" alt=""></p>
 <p>包含三个限制条件：</p>
 <ol>
 <li>如果选择了一个迁移，那么迁移的起始任务和目标任务均要出现在subgraph之中</li>
@@ -1853,9 +1853,9 @@
 <li>不超过监督预算</li>
 </ol>
 <p>数学表达：</p>
-<p><img src="2018-07-30-Taskonomy论文学习/DeepinScreenshot_select-area_20180731115516.png" alt=""></p>
+<p><img src="/2018/07/30/Taskonomy论文学习/DeepinScreenshot_select-area_20180731115516.png" alt=""></p>
 <p>随后，作者通过解最优subgraph selection问题获得了最有效的迁移学习策略</p>
-<p><img src="2018-07-30-Taskonomy论文学习/tansfer_policy.png" alt=""></p>
+<p><img src="/2018/07/30/Taskonomy论文学习/tansfer_policy.png" alt=""></p>
 <h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>Taskonomy训练了3000多个神经网络，总耗时约50000小时的GPU运算时间，从零学习消耗120k图片，迁移学习消耗16k图片。</p>
 <h3 id="解决一组任务"><a href="#解决一组任务" class="headerlink" title="解决一组任务"></a>解决一组任务</h3><p>衡量解决一组任务的有效性：</p>
 <ol>
@@ -1863,9 +1863,9 @@
 <li>迁移质量(Quality)：用少量数据迁移学习相较于用大量数据从零学习的胜率</li>
 </ol>
 <p>下图是Taskonomy的迁移获利 (左) 和质量 (右) 的图表。两图的纵轴为所有目标任务，横轴为监督预算，胜率在0-1之间。可见，对于一个26个任务的目标集，在只有一半甚至1／3的监督预算时，Taskonomy 计算出的监督分配会使整体表现远远打败从零学习（迁移获利），并近似于（胜率超过40%）大量数据完全监督学习（迁移质量）。</p>
-<p><img src="2018-07-30-Taskonomy论文学习/res.png" alt=""></p>
+<p><img src="/2018/07/30/Taskonomy论文学习/res.png" alt=""></p>
 <h3 id="解决新任务"><a href="#解决新任务" class="headerlink" title="解决新任务"></a>解决新任务</h3><p>对于解决新任务，我们可以把我们任务词典里的目标任务当作一个新任务，模拟只有少量数据的情况。实验结果如下，可以发现Taskonomy的表现超过了现有的行业pretrained features（包括imagenet fc7）。</p>
-<p><img src="2018-07-30-Taskonomy论文学习/new_task_res.png" alt=""></p>
+<p><img src="/2018/07/30/Taskonomy论文学习/new_task_res.png" alt=""></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在Taskonomy项目里，作者的目标是着眼于一组任务，并利用任务之间的关联性减少总体数据使用量。为此，走着量化了视觉任务的关联性，并基于求得的affinity matrix最优化得到如何分配任务监督数据量。实验表明，视觉任务之间确实存在很强的关联性，能通过更少的数据很好地解决一组任务。</p>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://zhuanlan.zhihu.com/p/38425434" target="_blank" rel="noopener">CVPR 2018 Best Paper Taskonomy 作者解读</a></p>
 <p><a href="http://taskonomy.stanford.edu/" target="_blank" rel="noopener">TASKONOMY</a></p>
@@ -1943,14 +1943,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2018/07/30/Hello-World/" itemprop="url">
                   Hello-World
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -2211,22 +2211,22 @@
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/NonlinearTime" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/NonlinearTime" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:hainesluo@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <a href="mailto:hainesluo@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://twitter.com/HainesLuo" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  <a href="https://twitter.com/HainesLuo" target="_blank" title="Twitter" rel="external nofollow"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/haines.luo" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  <a href="https://www.facebook.com/haines.luo" target="_blank" title="FB Page" rel="external nofollow"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
                   
                 </span>
               
@@ -2273,9 +2273,11 @@
 </div>
 
 
+  
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
@@ -2283,7 +2285,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
 
 
 
@@ -2450,21 +2452,6 @@
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
   
