@@ -108,30 +108,25 @@
 
 
 
-  <meta name="description" content="在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。 对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。 Deep Domain Confusion正是基于">
-<meta name="keywords" content="深度学习,迁移学习">
+  <meta name="description" content="题目描述Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。 Input:nums = [1,3,1]k = 1Output:">
+<meta name="keywords" content="算法,数组,二分查找">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度迁移学习：DDC方法">
-<meta property="og:url" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/index.html">
+<meta property="og:title" content="Find K-th Smallest Pair Distance">
+<meta property="og:url" content="http://qichiblog.cn/2018-08-02-Find-K-th-Smallest-Pair-Distance.html">
 <meta property="og:site_name" content="栖迟">
-<meta property="og:description" content="在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。 对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。 Deep Domain Confusion正是基于">
+<meta property="og:description" content="题目描述Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。 Input:nums = [1,3,1]k = 1Output:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/domain_diff.png">
-<meta property="og:image" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/mmd.png">
-<meta property="og:image" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/DDC_Loss.png">
-<meta property="og:image" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/Arch.png">
-<meta property="og:updated_time" content="2018-08-03T09:21:53.306Z">
+<meta property="og:updated_time" content="2018-08-03T11:10:49.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度迁移学习：DDC方法">
-<meta name="twitter:description" content="在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。 对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。 Deep Domain Confusion正是基于">
-<meta name="twitter:image" content="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/domain_diff.png">
+<meta name="twitter:title" content="Find K-th Smallest Pair Distance">
+<meta name="twitter:description" content="题目描述Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。 Input:nums = [1,3,1]k = 1Output:">
 
 
 
 
 
 
-  <link rel="canonical" href="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/"/>
+  <link rel="canonical" href="http://qichiblog.cn/2018-08-02-Find-K-th-Smallest-Pair-Distance.html"/>
 
 
 
@@ -141,7 +136,7 @@
   };
 </script>
 
-  <title>深度迁移学习：DDC方法 | 栖迟</title>
+  <title>Find K-th Smallest Pair Distance | 栖迟</title>
   
 
 
@@ -209,7 +204,7 @@
     </div>
     
       
-        <h1 class="site-subtitle" itemprop="description">但行好事，莫问前程</h1>
+        <h1 class="site-subtitle" itemprop="description">Haines Luo 的个人博客</h1>
       
     
   </div>
@@ -318,11 +313,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/">
+    <link itemprop="mainEntityOfPage" href="http://qichiblog.cn/2018-08-02-Find-K-th-Smallest-Pair-Distance.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Haines Luo">
-      <meta itemprop="description" content="Haines Luo 的个人博客">
+      <meta itemprop="description" content="但行好事，莫问前程">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -335,7 +330,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">深度迁移学习：DDC方法
+          <h2 class="post-title" itemprop="name headline">Find K-th Smallest Pair Distance
               
             
           </h2>
@@ -360,12 +355,24 @@
                 
               
 
-              <time title="Created: 2018-08-03 13:46:42 / Modified: 17:21:53" itemprop="dateCreated datePublished" datetime="2018-08-03T13:46:42+08:00">2018-08-03</time>
+              <time title="Created: 2018-08-02 10:52:20" itemprop="dateCreated datePublished" datetime="2018-08-02T10:52:20+08:00">2018-08-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-03 19:10:49" itemprop="dateModified" datetime="2018-08-03T19:10:49+08:00">2018-08-03</time>
               
             
           </span>
@@ -382,7 +389,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/迁移学习/" itemprop="url" rel="index"><span itemprop="name">迁移学习</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
 
                 
                 
@@ -397,8 +404,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/03/深度迁移学习：DDC方法/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/08/03/深度迁移学习：DDC方法/" itemprop="commentCount"></span>
+                <a href="/2018-08-02-Find-K-th-Smallest-Pair-Distance.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018-08-02-Find-K-th-Smallest-Pair-Distance.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -406,7 +413,7 @@
 
           
           
-             <span id="/2018/08/03/深度迁移学习：DDC方法/" class="leancloud_visitors" data-flag-title="深度迁移学习：DDC方法">
+             <span id="/2018-08-02-Find-K-th-Smallest-Pair-Distance.html" class="leancloud_visitors" data-flag-title="Find K-th Smallest Pair Distance">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -431,7 +438,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">789</span>
+                <span title="Symbols count in article">2.7k</span>
               
 
               
@@ -445,7 +452,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">5 mins.</span>
               
             </div>
           
@@ -465,21 +472,22 @@
       
 
       
-        <p>在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。</p>
-<p>对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。</p>
-<p>Deep Domain Confusion正是基于这一思想，同时优化分类损失和领域之间的差异损失，从而达到领域自适应的目的。作者提出了一种新的CNN架构，通过引入了一层自适应层，来最小化领域之间的差异。作者使用MMD方法来衡量源领域和目标领域之间的差异。</p>
-<p><img src="/2018/08/03/深度迁移学习：DDC方法/domain_diff.png" alt=""></p>
-<p>为了最小化两个领域之间的距离，DDC使用Maximum Mean Discrepancy(MMD)方法对距离进行衡量。定义了一个表现形式(representation)，$\phi (\cdot)$，作用域源域的样本以及目标域的用别样本之上。两个领域之间的距离如下计算：</p>
-<p><img src="/2018/08/03/深度迁移学习：DDC方法/mmd.png" alt=""></p>
-<p>在考虑到距离损失之后，网络的损失修改成如下形式：</p>
-<p><img src="/2018/08/03/深度迁移学习：DDC方法/DDC_Loss.png" alt=""></p>
-<p>作者通过加入一个自适应层(Adaptation Layer)来完成源领域向目标领域的迁移，实际上是一个维度较低 的全连接层。作者的直觉是，更低维度可以用来规范化源分类器的训练并且避免过拟合。</p>
-<p><img src="/2018/08/03/深度迁移学习：DDC方法/Arch.png" alt=""></p>
-<p>主要有两个问题需要确定：在哪一层放入自适应层，以及自适应层的维度应该设为多少。</p>
-<p>第一个问题，作者通过计算source和target在不同层的表达之间的MMD数值，选择了数值最小的位置。</p>
-<p>第二个问题，作者通过网格搜索(Grid Search)方法，确定了能够最小化MMD的维度。</p>
-<p>最后，所有数据用于计算domain loss，有label的数据用于计算classification Loss。source CNN和target CNN 网络参数共享。</p>
-
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an integer array, return the k-th smallest <strong>distance</strong> among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。</p>
+<p><strong>Input:</strong><br>nums = [1,3,1]<br>k = 1<br><strong>Output: 0</strong><br><strong>Explanation:</strong><br>Here are all the pairs:<br>(1,3) -&gt; 2<br>(1,1) -&gt; 0<br>(3,1) -&gt; 2<br>Then the 1st smallest distance pair is (1,1), and its distance is 0.</p>
+<p><strong>Note:</strong></p>
+<ol>
+<li><code>2 &lt;= len(nums) &lt;= 10000</code>.</li>
+<li><code>0 &lt;= nums[i] &lt; 1000000</code>.</li>
+<li><code>1 &lt;= k &lt;= len(nums) * (len(nums) - 1) / 2</code>.</li>
+</ol>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><ol>
+<li>对数组进行排序</li>
+<li>对数对的距离进行二分</li>
+<li>统计距离比中点小的数对数</li>
+</ol>
+<h1 id="失败案例"><a href="#失败案例" class="headerlink" title="失败案例"></a>失败案例</h1><p>题目不要求去重，hashtable思路不对</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">smallestDistancePair</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">          <span class="comment">/* hashtable:</span></span><br><span class="line"><span class="comment">         * 失败，不符合题意</span></span><br><span class="line"><span class="comment">         * 题目为找出所有配对，不进行去重！！！</span></span><br><span class="line"><span class="comment">         * 在这样的(n * (n - 1)) / 2个元素对中找第k小</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; hash_table;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; sol_hash;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;item : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hash_table.find(item) == hash_table.end()) hash_table[item] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> hash_table[item] += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> iter = hash_table.begin() ; iter != hash_table.end() ; ++iter) &#123;</span><br><span class="line">            <span class="keyword">if</span> (iter-&gt;second &gt; <span class="number">1</span> &amp;&amp; sol_hash.find(<span class="number">0</span>) == sol_hash.end()) &#123;</span><br><span class="line">                sol_hash[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (iter != hash_table.begin()) &#123;</span><br><span class="line">                <span class="keyword">int</span> local_gap = iter-&gt;first - (--iter)-&gt;first;</span><br><span class="line">                <span class="keyword">if</span> (sol_hash.find(local_gap) == sol_hash.end()) &#123;</span><br><span class="line">                    sol_hash[local_gap] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                iter++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">auto</span> iter = sol_hash.begin();</span><br><span class="line">        <span class="keyword">while</span>(--k) iter++;</span><br><span class="line">        <span class="keyword">return</span> iter-&gt;first;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">smallestDistancePair</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/*思路</span></span><br><span class="line"><span class="comment">         * 1. 对数组排序</span></span><br><span class="line"><span class="comment">         * 2. 对数对的距离进行二分</span></span><br><span class="line"><span class="comment">         * 3. 统计距离比中点小的数对数</span></span><br><span class="line"><span class="comment">         * */</span></span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> hi = nums[nums.size() - <span class="number">1</span>] - nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">while</span> (lo &lt; hi) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> left = <span class="number">0</span>, count = <span class="number">0</span> ;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> right = <span class="number">0</span> ; right &lt; nums.size(); ++right ) &#123;</span><br><span class="line">                <span class="keyword">while</span>(nums[right] - nums[left] &gt; mid) left++;</span><br><span class="line">                count += right - left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (count &gt;= k) hi = mid;</span><br><span class="line">            <span class="keyword">else</span> lo = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Solution s;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; t = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s.smallestDistancePair(t, <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -510,7 +518,7 @@
     <strong>Post author:  </strong>Haines Luo</li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/" title="深度迁移学习：DDC方法">http://qichiblog.cn/2018/08/03/深度迁移学习：DDC方法/</a>
+    <a href="http://qichiblog.cn/2018-08-02-Find-K-th-Smallest-Pair-Distance.html" title="Find K-th Smallest Pair Distance">http://qichiblog.cn/2018-08-02-Find-K-th-Smallest-Pair-Distance.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -523,9 +531,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           
-            <a href="/tags/迁移学习/" rel="tag"><i class="fa fa-tag"></i> 迁移学习</a>
+            <a href="/tags/数组/" rel="tag"><i class="fa fa-tag"></i> 数组</a>
+          
+            <a href="/tags/二分查找/" rel="tag"><i class="fa fa-tag"></i> 二分查找</a>
           
         </div>
       
@@ -538,8 +548,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/03/Academic-Vocabulary-in-Cs/" rel="next" title="Academic Vocabulary in Cs">
-                <i class="fa fa-chevron-left"></i> Academic Vocabulary in Cs
+              <a href="/2018-08-01-寻找两个排序数组中位数.html" rel="next" title="寻找两个排序数组中位数">
+                <i class="fa fa-chevron-left"></i> 寻找两个排序数组中位数
               </a>
             
           </div>
@@ -547,6 +557,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018-08-02-2018年浙江大学暑期夏令营学习记录.html" rel="prev" title="2018年浙江大学暑期夏令营学习记录">
+                2018年浙江大学暑期夏令营学习记录 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -594,13 +608,22 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Haines Luo</p>
-              <p class="site-description motion-element" itemprop="description">Haines Luo 的个人博客</p>
+              <p class="site-description motion-element" itemprop="description">但行好事，莫问前程</p>
           </div>
 
           
@@ -720,6 +743,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#失败案例"><span class="nav-number">3.</span> <span class="nav-text">失败案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

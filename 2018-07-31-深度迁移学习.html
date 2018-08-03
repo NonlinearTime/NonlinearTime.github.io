@@ -108,25 +108,39 @@
 
 
 
-  <meta name="description" content="题目描述Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。 Input:nums = [1,3,1]k = 1Output:">
-<meta name="keywords" content="算法,数组,二分查找">
+  <meta name="description" content="深度迁移学习对比传统的非深度迁移学习方法，深度迁移学习直接提升了在不同任务上的学习效果，并且，由于深度学习直接对原始数据进行学习，其对于费深度方法还有两个优势：自动化地提取更具有表现力的特征，以及满足了实际应用中的端到端(End-to-End)的需求。 近年来，以生成对抗网络(GAN)为代表的对抗学习吸引了很多研究者的目光。基于GAN的各种变体网络不断涌现。对抗生成网络对比传统的深度神经网络，极大">
+<meta name="keywords" content="计算机视觉,深度学习,迁移学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Find K-th Smallest Pair Distance">
-<meta property="og:url" content="http://qichiblog.cn/2018/08/02/Find-K-th-Smallest-Pair-Distance/index.html">
+<meta property="og:title" content="深度迁移学习">
+<meta property="og:url" content="http://qichiblog.cn/2018-07-31-深度迁移学习.html">
 <meta property="og:site_name" content="栖迟">
-<meta property="og:description" content="题目描述Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。 Input:nums = [1,3,1]k = 1Output:">
+<meta property="og:description" content="深度迁移学习对比传统的非深度迁移学习方法，深度迁移学习直接提升了在不同任务上的学习效果，并且，由于深度学习直接对原始数据进行学习，其对于费深度方法还有两个优势：自动化地提取更具有表现力的特征，以及满足了实际应用中的端到端(End-to-End)的需求。 近年来，以生成对抗网络(GAN)为代表的对抗学习吸引了很多研究者的目光。基于GAN的各种变体网络不断涌现。对抗生成网络对比传统的深度神经网络，极大">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-02T03:21:40.680Z">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/深度与非深度迁移学习方法对比.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/神经网络的层次结构.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/finetune.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/DDC.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/MK-MMD.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/DAN.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/DAN_Arch.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/DAN_learning.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/jointCNN_Loss.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/joint%20CNN.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/softlabel.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/JAN.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/AdaBN.png">
+<meta property="og:updated_time" content="2018-08-03T11:10:49.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Find K-th Smallest Pair Distance">
-<meta name="twitter:description" content="题目描述Given an integer array, return the k-th smallest distance among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。 Input:nums = [1,3,1]k = 1Output:">
+<meta name="twitter:title" content="深度迁移学习">
+<meta name="twitter:description" content="深度迁移学习对比传统的非深度迁移学习方法，深度迁移学习直接提升了在不同任务上的学习效果，并且，由于深度学习直接对原始数据进行学习，其对于费深度方法还有两个优势：自动化地提取更具有表现力的特征，以及满足了实际应用中的端到端(End-to-End)的需求。 近年来，以生成对抗网络(GAN)为代表的对抗学习吸引了很多研究者的目光。基于GAN的各种变体网络不断涌现。对抗生成网络对比传统的深度神经网络，极大">
+<meta name="twitter:image" content="http://qichiblog.cn/2018-07-31-深度迁移学习/深度与非深度迁移学习方法对比.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://qichiblog.cn/2018/08/02/Find-K-th-Smallest-Pair-Distance/"/>
+  <link rel="canonical" href="http://qichiblog.cn/2018-07-31-深度迁移学习.html"/>
 
 
 
@@ -136,7 +150,7 @@
   };
 </script>
 
-  <title>Find K-th Smallest Pair Distance | 栖迟</title>
+  <title>深度迁移学习 | 栖迟</title>
   
 
 
@@ -204,7 +218,7 @@
     </div>
     
       
-        <h1 class="site-subtitle" itemprop="description">但行好事，莫问前程</h1>
+        <h1 class="site-subtitle" itemprop="description">Haines Luo 的个人博客</h1>
       
     
   </div>
@@ -313,11 +327,11 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qichiblog.cn/2018/08/02/Find-K-th-Smallest-Pair-Distance/">
+    <link itemprop="mainEntityOfPage" href="http://qichiblog.cn/2018-07-31-深度迁移学习.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Haines Luo">
-      <meta itemprop="description" content="Haines Luo 的个人博客">
+      <meta itemprop="description" content="但行好事，莫问前程">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -330,7 +344,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Find K-th Smallest Pair Distance
+          <h2 class="post-title" itemprop="name headline">深度迁移学习
               
             
           </h2>
@@ -355,12 +369,24 @@
                 
               
 
-              <time title="Created: 2018-08-02 10:52:20 / Modified: 11:21:40" itemprop="dateCreated datePublished" datetime="2018-08-02T10:52:20+08:00">2018-08-02</time>
+              <time title="Created: 2018-07-31 20:44:03" itemprop="dateCreated datePublished" datetime="2018-07-31T20:44:03+08:00">2018-07-31</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-03 19:10:49" itemprop="dateModified" datetime="2018-08-03T19:10:49+08:00">2018-08-03</time>
               
             
           </span>
@@ -377,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/迁移学习/" itemprop="url" rel="index"><span itemprop="name">迁移学习</span></a></span>
 
                 
                 
@@ -392,8 +418,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/02/Find-K-th-Smallest-Pair-Distance/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/08/02/Find-K-th-Smallest-Pair-Distance/" itemprop="commentCount"></span>
+                <a href="/2018-07-31-深度迁移学习.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018-07-31-深度迁移学习.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -401,7 +427,7 @@
 
           
           
-             <span id="/2018/08/02/Find-K-th-Smallest-Pair-Distance/" class="leancloud_visitors" data-flag-title="Find K-th Smallest Pair Distance">
+             <span id="/2018-07-31-深度迁移学习.html" class="leancloud_visitors" data-flag-title="深度迁移学习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -426,7 +452,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">2.7k</span>
+                <span title="Symbols count in article">3.3k</span>
               
 
               
@@ -440,7 +466,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">5 mins.</span>
+                <span title="Reading time">6 mins.</span>
               
             </div>
           
@@ -460,22 +486,95 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an integer array, return the k-th smallest <strong>distance</strong> among all the pairs. The distance of a pair (A, B) is defined as the absolute difference between A and B。</p>
-<p><strong>Input:</strong><br>nums = [1,3,1]<br>k = 1<br><strong>Output: 0</strong><br><strong>Explanation:</strong><br>Here are all the pairs:<br>(1,3) -&gt; 2<br>(1,1) -&gt; 0<br>(3,1) -&gt; 2<br>Then the 1st smallest distance pair is (1,1), and its distance is 0.</p>
-<p><strong>Note:</strong></p>
+        <h1 id="深度迁移学习"><a href="#深度迁移学习" class="headerlink" title="深度迁移学习"></a>深度迁移学习</h1><p>对比传统的非深度迁移学习方法，深度迁移学习直接提升了在不同任务上的学习效果，并且，由于深度学习直接对原始数据进行学习，其对于费深度方法还有两个优势：自动化地提取更具有表现力的特征，以及满足了实际应用中的端到端(End-to-End)的需求。</p>
+<p>近年来，以生成对抗网络(GAN)为代表的对抗学习吸引了很多研究者的目光。基于GAN的各种变体网络不断涌现。对抗生成网络对比传统的深度神经网络，极大的提升了学习效果。因此，基于对抗网络的迁移学习，也是一个热门的研究点。</p>
+<p><img src="2018-07-31-深度迁移学习/深度与非深度迁移学习方法对比.png" alt=""></p>
+<p>本文参考transfer_learning_tutorial， 作为深度迁移学习的学习笔记，以供日后查阅。</p>
+<h2 id="深度网络的可迁移性"><a href="#深度网络的可迁移性" class="headerlink" title="深度网络的可迁移性"></a>深度网络的可迁移性</h2><p>神经网络具有良好的层次结构，这为解释深度神经网络提供了一种思路，即：假设一个网络要识别一只猫，那么一开始它只能检测到一些边边角角的东西，和猫根本没有关系。然后可能会检测到一些线条和圆形。慢慢地，可以检测到由猫的区域；接着是猫猫脸等等。</p>
+<p><img src="2018-07-31-深度迁移学习/神经网络的层次结构.png" alt=""></p>
+<p>概括来说，神经网络的前几层学习到的都是通用的特征，随着网络层次的加深，后面的网络更偏重于学习任务特定的特征。</p>
+<p>那么，如何的值哪些层能够学习到general feature，哪些层可以学习到specific feature呢？进一步，如果应用与迁移学习，如何决定迁移哪些层、固定那些层？</p>
+<p>2014年康奈尔大学的Jason Yosinski等人率先进行了深度神经网络的可迁移性研究，文章通过实验得到了以下几个结论：</p>
+<ul>
+<li>神经网络的前3层基本都是general feature，进行迁移的效果比较好</li>
+<li>深度迁移网络中加入fine-tune，效果会提升比较大，可能会比原网络效果还好</li>
+<li>Fine-tune可以比较好地克服数据之间的差异性</li>
+<li>深度迁移网络要比随机初始化权重效果好</li>
+<li>网络层数的迁移可以加速网络的学习和优化</li>
+</ul>
+<h2 id="最简单的深度迁移：finetune"><a href="#最简单的深度迁移：finetune" class="headerlink" title="最简单的深度迁移：finetune"></a>最简单的深度迁移：finetune</h2><p>简而言之，finetune就是利用别人已经训练好的网络，针对自己的任务在进行训练调整。不难理解，finetune是迁移学习的一部分。</p>
 <ol>
-<li><code>2 &lt;= len(nums) &lt;= 10000</code>.</li>
-<li><code>0 &lt;= nums[i] &lt; 1000000</code>.</li>
-<li><code>1 &lt;= k &lt;= len(nums) * (len(nums) - 1) / 2</code>.</li>
+<li>为什么需要已经训练好的网络</li>
 </ol>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><ol>
-<li>对数组进行排序</li>
-<li>对数对的距离进行二分</li>
-<li>统计距离比中点小的数对数</li>
+<ul>
+<li>数据集不够大，影响泛化能力</li>
+<li>从大量数据上重新训练，代价不可承受</li>
+</ul>
+<ol>
+<li>为什么需要finetune</li>
 </ol>
-<h1 id="失败案例"><a href="#失败案例" class="headerlink" title="失败案例"></a>失败案例</h1><p>题目不要求去重，hashtable思路不对</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">smallestDistancePair</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">          <span class="comment">/* hashtable:</span></span><br><span class="line"><span class="comment">         * 失败，不符合题意</span></span><br><span class="line"><span class="comment">         * 题目为找出所有配对，不进行去重！！！</span></span><br><span class="line"><span class="comment">         * 在这样的(n * (n - 1)) / 2个元素对中找第k小</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; hash_table;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; sol_hash;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;item : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span> (hash_table.find(item) == hash_table.end()) hash_table[item] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> hash_table[item] += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> iter = hash_table.begin() ; iter != hash_table.end() ; ++iter) &#123;</span><br><span class="line">            <span class="keyword">if</span> (iter-&gt;second &gt; <span class="number">1</span> &amp;&amp; sol_hash.find(<span class="number">0</span>) == sol_hash.end()) &#123;</span><br><span class="line">                sol_hash[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (iter != hash_table.begin()) &#123;</span><br><span class="line">                <span class="keyword">int</span> local_gap = iter-&gt;first - (--iter)-&gt;first;</span><br><span class="line">                <span class="keyword">if</span> (sol_hash.find(local_gap) == sol_hash.end()) &#123;</span><br><span class="line">                    sol_hash[local_gap] = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                iter++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">auto</span> iter = sol_hash.begin();</span><br><span class="line">        <span class="keyword">while</span>(--k) iter++;</span><br><span class="line">        <span class="keyword">return</span> iter-&gt;first;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">smallestDistancePair</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/*思路</span></span><br><span class="line"><span class="comment">         * 1. 对数组排序</span></span><br><span class="line"><span class="comment">         * 2. 对数对的距离进行二分</span></span><br><span class="line"><span class="comment">         * 3. 统计距离比中点小的数对数</span></span><br><span class="line"><span class="comment">         * */</span></span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> lo = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> hi = nums[nums.size() - <span class="number">1</span>] - nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">while</span> (lo &lt; hi) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = lo + (hi - lo) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> left = <span class="number">0</span>, count = <span class="number">0</span> ;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> right = <span class="number">0</span> ; right &lt; nums.size(); ++right ) &#123;</span><br><span class="line">                <span class="keyword">while</span>(nums[right] - nums[left] &gt; mid) left++;</span><br><span class="line">                count += right - left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (count &gt;= k) hi = mid;</span><br><span class="line">            <span class="keyword">else</span> lo = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Solution s;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; t = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s.smallestDistancePair(t, <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>训练好的模型，并不完全适用于自己的任务</li>
+</ul>
+<ol>
+<li>Finetune的优势</li>
+</ol>
+<ul>
+<li>无需从头训练，节省了时间成本</li>
+<li>预训练好的模型通常是在大数据集上进行，无形中扩充了我们的训练数据，使得模型鲁棒性更好、泛化能力更好</li>
+<li>Finetune实现简单，使得我们只关注自己的任务即可</li>
+</ul>
+<p><img src="2018-07-31-深度迁移学习/finetune.png" alt=""></p>
+<h2 id="深度网络自适应"><a href="#深度网络自适应" class="headerlink" title="深度网络自适应"></a>深度网络自适应</h2><h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><p>finetune的基本假设是：训练数据和测试数据服从相同的数据分布。这在迁移学习中是不成立的。因此，需要针对深度网络开发出更好的方法实质更好地完成迁移学习任务。</p>
+<p>许多深度学习方法开发出了自适应层$Adaptation Layer$来完成源域到目标域数据的自适应。</p>
+<p>深度网络的自适应主要完成两部分的工作：</p>
+<ol>
+<li>那些层可以自适应，决定了网络的学习程度</li>
+<li>采用什么样的自适应方法(度量准则)，这决定的网络的泛化能力</li>
+</ol>
+<p>绝大多数深度迁移学习方法都采用了以下的损失定义方式：</p>
+<script type="math/tex; mode=display">\cal l = \cal l_c(\cal D_s, y_s) + \lambda \cal l_A(\cal D_s, \cal D_t)</script><p>其中，$\cal l$表示网络的最终损失，$\cal l_c(\cal D_s, y_s)$表示网络在有标注的数据(大部分是源域)上的常规分类损失，这与普通深度网络完全一致。$\cal l_A(\cal D_s , \cal D_t)$ 表示网络的自适应损失。$\lambda$ 是权衡两部分的权重参数。</p>
+<h3 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h3><h4 id="DDC方法"><a href="#DDC方法" class="headerlink" title="DDC方法"></a>DDC方法</h4><p>由加州大学伯克利分校的Tzeng等人首先提出，在ImageNet数据集上训练好的AlexNet网络上进行自适应学习。</p>
+<p>DDC固定了AlexNet的前7层，在第8层(分类器之前)加入了自适应的度量。自适应度量方法采用了广泛使用的MMD准则。DDC 方法的损失函数表示为：</p>
+<script type="math/tex; mode=display">\cal l = \cal l_c(D_s,y_s  + \lambda MMD^2(D_s, D_t))</script><p><img src="2018-07-31-深度迁移学习/DDC.png" alt=""></p>
+<p>DDC方法的作者经过多次试验，在不同的层进行了尝试，最终得出结论，在分类器前一层加入自适应可以达到最好的效果。</p>
+<h4 id="DAN方法"><a href="#DAN方法" class="headerlink" title="DAN方法"></a>DAN方法</h4><p>2015年清华大学的龙明盛等人发表DAN方法，对DDC方法进行了几个方面的扩展：</p>
+<ul>
+<li>DAN方法同时加入了三个自适应层。</li>
+<li>DAN方法采用了表征能力更好的多核MMD度量(MK-MMD)</li>
+<li>DAN方法将多核MMD的参数学习融入到深度网络的训练中，不增加额外的训练时间。</li>
+</ul>
+<p>为何选择适配三层？Jason在文章中说，AlexNet网络的迁移能力在这三层开始特别task-specific，所以要着重适配。而其余网络是否如此需要实验。</p>
+<p>MK-MMD 的多核表示形式：</p>
+<p><img src="2018-07-31-深度迁移学习/MK-MMD.png" alt=""></p>
+<p>DAN优化目标：</p>
+<p><img src="2018-07-31-深度迁移学习/DAN.png" alt="DAN"></p>
+<p>其中，$\theta $表示网络中所有权重和bias参数，是用来学习的目标。其中，$l_1, l_2$分别是6和8，表示网络适配是从第六层到第八层。$x_a、n_a$表示源域和目标域中所有有标注的数据的集合。$J(\cdot)$ 定义了一个损失函数。</p>
+<p>DAN网络结构如下：</p>
+<p><img src="2018-07-31-深度迁移学习/DAN_Arch.png" alt=""> </p>
+<h4 id="学习策略"><a href="#学习策略" class="headerlink" title="学习策略"></a>学习策略</h4><p>DAN主要学习两大类参数：学习网络参数$\Theta $和MMD的$\beta$</p>
+<p><img src="2018-07-31-深度迁移学习/DAN_learning.png" alt=""></p>
+<h3 id="同时迁移领域和任务"><a href="#同时迁移领域和任务" class="headerlink" title="同时迁移领域和任务"></a>同时迁移领域和任务</h3><p>DCC作者Tzeng在2015年扩展了DCC方法，提出领域和任务同时迁移的方法，网络要进行两部分的迁移：</p>
+<ul>
+<li>domain transfer，即适配分布，特别是适配marginal distribution，但是没有考虑类别信息。</li>
+<li>task transfer，即利用class之间额相似度，特指conditional distribution。类别之间具有相似度，需要利用上。</li>
+</ul>
+<p>作者提出joint CNN architecture for domain and task transfer。最大的创新点在于，现有的方法都是在domain classifier加上一个domain confusion，而作者认为，忽略了类别之间的联系，所以提出还要加上一个soft label loss。即在source 和target进行适配的时候，也要根据source的类别分布情况进行调整target的。</p>
+<p>文章的方法就是把这两个loss结合到一个新的CNN网络上，利用AlexNet的结构修改而成。总的Loss：</p>
+<p><img src="2018-07-31-深度迁移学习/jointCNN_Loss.png" alt=""></p>
+<p>上式由三部分组成：普通训练的Loss，domain adaptation损失，以及新加的soft label 的loss,其只作用于target上。</p>
+<p><img src="2018-07-31-深度迁移学习/joint CNN.png" alt=""></p>
+<p><strong>soft label loss</strong> </p>
+<p>在网络对source进行训练的时候，把source的每一个样本处于每一个类的概率记下来，然后对于所有样本，属于每一个类的概率都可以通过均值得到。这样的目的是：根据source中的类别分布关系，对target做响应的约束。</p>
+<p><img src="2018-07-31-深度迁移学习/softlabel.png" alt=""></p>
+<h4 id="深度联合分布自适应"><a href="#深度联合分布自适应" class="headerlink" title="深度联合分布自适应"></a>深度联合分布自适应</h4><p>DAN作者，清华大学龙明盛在2017年提出了JAN方法，在深度网络中同时进行联合分布的自适应和对抗学习。将只对数据进行自适应的方式推广到了对类别进行自适应，提出了JMMD度量(Joint MMD)。</p>
+<p><img src="2018-07-31-深度迁移学习/JAN.png" alt=""></p>
+<h4 id="AdaBN"><a href="#AdaBN" class="headerlink" title="AdaBN"></a>AdaBN</h4><p>在归一化层加入统计特征的适配，从而完成迁移</p>
+<p><img src="2018-07-31-深度迁移学习/AdaBN.png" alt=""></p>
+<h2 id="深度对抗网络迁移"><a href="#深度对抗网络迁移" class="headerlink" title="深度对抗网络迁移"></a>深度对抗网络迁移</h2><h3 id="基本思路-1"><a href="#基本思路-1" class="headerlink" title="基本思路"></a>基本思路</h3><p>GAN的目标很明确：生成训练样本。而在迁移学习中，存在一个源领域和目标领域，因此，我们可以免去生成样本的过程，直接将其中一个领域的数据(通常是目标域)当做是生成的样本。此时，生成器的只能发生变化，不再生成新的样本，而是扮演了特征提取的功能：不断学习领域数据的特征，使得判别器无法对两个领域进行分辨，这样，原来的生成器也可以成为特征提取器(Feature Extractor)。</p>
+<p>通常使用$G_f $表示特征提取器，用$G_d$表示判别器。</p>
+<p>深度对抗网络的损失也有两部分构成：网络的训练损失$l_c$和领域判别损失$l_d$：</p>
+<script type="math/tex; mode=display">\cal l = l_c(D_s, y_s) + \lambda l_d(D_s,D_t)</script><h3 id="核心方法-1"><a href="#核心方法-1" class="headerlink" title="核心方法"></a>核心方法</h3><h4 id="DANN"><a href="#DANN" class="headerlink" title="DANN"></a>DANN</h4><h4 id="DSN"><a href="#DSN" class="headerlink" title="DSN"></a>DSN</h4><h4 id="SAN"><a href="#SAN" class="headerlink" title="SAN"></a>SAN</h4>
       
     </div>
 
@@ -506,7 +605,7 @@
     <strong>Post author:  </strong>Haines Luo</li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://qichiblog.cn/2018/08/02/Find-K-th-Smallest-Pair-Distance/" title="Find K-th Smallest Pair Distance">http://qichiblog.cn/2018/08/02/Find-K-th-Smallest-Pair-Distance/</a>
+    <a href="http://qichiblog.cn/2018-07-31-深度迁移学习.html" title="深度迁移学习">http://qichiblog.cn/2018-07-31-深度迁移学习.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -519,11 +618,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+            <a href="/tags/计算机视觉/" rel="tag"><i class="fa fa-tag"></i> 计算机视觉</a>
           
-            <a href="/tags/数组/" rel="tag"><i class="fa fa-tag"></i> 数组</a>
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
           
-            <a href="/tags/二分查找/" rel="tag"><i class="fa fa-tag"></i> 二分查找</a>
+            <a href="/tags/迁移学习/" rel="tag"><i class="fa fa-tag"></i> 迁移学习</a>
           
         </div>
       
@@ -536,8 +635,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/01/寻找两个排序数组中位数/" rel="next" title="寻找两个排序数组中位数">
-                <i class="fa fa-chevron-left"></i> 寻找两个排序数组中位数
+              <a href="/2018-07-30-Taskonomy论文学习.html" rel="next" title="Taskonomy论文学习">
+                <i class="fa fa-chevron-left"></i> Taskonomy论文学习
               </a>
             
           </div>
@@ -546,8 +645,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/02/2018年浙江大学暑期夏令营学习记录/" rel="prev" title="2018年浙江大学暑期夏令营学习记录">
-                2018年浙江大学暑期夏令营学习记录 <i class="fa fa-chevron-right"></i>
+              <a href="/2018-08-01-寻找两个排序数组中位数.html" rel="prev" title="寻找两个排序数组中位数">
+                寻找两个排序数组中位数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -611,7 +710,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Haines Luo</p>
-              <p class="site-description motion-element" itemprop="description">Haines Luo 的个人博客</p>
+              <p class="site-description motion-element" itemprop="description">但行好事，莫问前程</p>
           </div>
 
           
@@ -741,7 +840,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#失败案例"><span class="nav-number">3.</span> <span class="nav-text">失败案例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码实现"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深度迁移学习"><span class="nav-number">1.</span> <span class="nav-text">深度迁移学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#深度网络的可迁移性"><span class="nav-number">1.1.</span> <span class="nav-text">深度网络的可迁移性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最简单的深度迁移：finetune"><span class="nav-number">1.2.</span> <span class="nav-text">最简单的深度迁移：finetune</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度网络自适应"><span class="nav-number">1.3.</span> <span class="nav-text">深度网络自适应</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思路"><span class="nav-number">1.3.1.</span> <span class="nav-text">基本思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心方法"><span class="nav-number">1.3.2.</span> <span class="nav-text">核心方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DDC方法"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">DDC方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DAN方法"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">DAN方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#学习策略"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">学习策略</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同时迁移领域和任务"><span class="nav-number">1.3.3.</span> <span class="nav-text">同时迁移领域和任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#深度联合分布自适应"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">深度联合分布自适应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AdaBN"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">AdaBN</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度对抗网络迁移"><span class="nav-number">1.4.</span> <span class="nav-text">深度对抗网络迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思路-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">基本思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心方法-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">核心方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DANN"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">DANN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DSN"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">DSN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SAN"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">SAN</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
