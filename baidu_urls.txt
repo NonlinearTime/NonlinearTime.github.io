@@ -1,3 +1,5 @@
+http://qichiblog.cn/2018-08-03-深度迁移学习-jAN方法.html
+http://qichiblog.cn/2018-08-03-神经网络模型-SqueezeNet.html
 http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法.html
 http://qichiblog.cn/2018-08-03-Academic-Vocabulary-in-Cs.html
 http://qichiblog.cn/2018-08-02-2018年浙江大学暑期夏令营学习记录.html

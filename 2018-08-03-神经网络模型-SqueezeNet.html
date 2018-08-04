@@ -108,21 +108,28 @@
 
 
 
-  <meta name="keywords" content="互联网,计算机视觉,算法,虚拟现实,增强现实">
-<meta property="og:type" content="website">
-<meta property="og:title" content="栖迟">
-<meta property="og:url" content="http://qichiblog.cn/tags/CVPR/index.html">
+  <meta name="description" content="详细介绍SqueezeNet模型的构造思想及其方法">
+<meta name="keywords" content="神经网络,深度学习,计算机视觉">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神经网络模型:SqueezeNet">
+<meta property="og:url" content="http://qichiblog.cn/2018-08-03-神经网络模型-SqueezeNet.html">
 <meta property="og:site_name" content="栖迟">
+<meta property="og:description" content="详细介绍SqueezeNet模型的构造思想及其方法">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://qichiblog.cn/2018-08-03-神经网络模型-SqueezeNet/file_module.png">
+<meta property="og:image" content="http://qichiblog.cn/2018-08-03-神经网络模型-SqueezeNet/SqueezeNet_Arch.png">
+<meta property="og:updated_time" content="2018-08-04T06:12:06.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="栖迟">
+<meta name="twitter:title" content="神经网络模型:SqueezeNet">
+<meta name="twitter:description" content="详细介绍SqueezeNet模型的构造思想及其方法">
+<meta name="twitter:image" content="http://qichiblog.cn/2018-08-03-神经网络模型-SqueezeNet/file_module.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://qichiblog.cn/tags/CVPR/"/>
+  <link rel="canonical" href="http://qichiblog.cn/2018-08-03-神经网络模型-SqueezeNet.html"/>
 
 
 
@@ -132,7 +139,7 @@
   };
 </script>
 
-  <title>Tag: CVPR | 栖迟</title>
+  <title>神经网络模型:SqueezeNet | 栖迟</title>
   
 
 
@@ -179,7 +186,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <!--Github-start-->
@@ -240,7 +247,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
@@ -289,84 +296,310 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>CVPR<small>Tag</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qichiblog.cn/2018-08-03-神经网络模型-SqueezeNet.html">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Haines Luo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="栖迟">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018-07-30-Taskonomy论文学习.html" itemprop="url">
-              
-                <span itemprop="name">Taskonomy论文学习</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">神经网络模型:SqueezeNet
+              
+            
+          </h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-30T19:24:26+08:00"
-              content="2018-07-30" >
-          07-30
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-03 20:22:35" itemprop="dateCreated datePublished" datetime="2018-08-03T20:22:35+08:00">2018-08-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-04 14:12:06" itemprop="dateModified" datetime="2018-08-04T14:12:06+08:00">2018-08-04</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/深度学习/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018-08-03-神经网络模型-SqueezeNet.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018-08-03-神经网络模型-SqueezeNet.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018-08-03-神经网络模型-SqueezeNet.html" class="leancloud_visitors" data-flag-title="神经网络模型:SqueezeNet">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">954</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">详细介绍SqueezeNet模型的构造思想及其方法</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>SqueezeNet由UC Berkeley和Stanford的研究人员在2016年共同设计并提出，设计目标不是为了得到最佳的CNN的识别精度，而是希望简化网络的复杂度，同时达到public网络的识别精度。SqueezeNet主要是为了降低CNN模型参数数量而设计的。</p>
+<h1 id="研究动机"><a href="#研究动机" class="headerlink" title="研究动机"></a>研究动机</h1><p>更少参数的CNN架构具有以下几个优势：</p>
+<ul>
+<li>更加有效地进行分布式训练：减少通信带来的性能损失</li>
+<li>将新模型导入客户端时开销较小</li>
+<li>对FPGA和嵌入式环境友好</li>
+</ul>
+<h1 id="设计策略"><a href="#设计策略" class="headerlink" title="设计策略"></a>设计策略</h1><p>为了保持具有竞争力的精确度的同时减少CNN的参数规模，按照下列三条策略进行设计：</p>
+<ul>
+<li>使用$1\times 1$的卷积核替代$3\times 3$的卷积核：如此替换可以减少9X的参数数量</li>
+<li>减少输入到$3\times 3$卷积核尺寸的卷积层的图像的channel：卷积层的输出规模为$(input channels) <em> (filters) </em> (3 * 3)$</li>
+<li>在网络中采取晚采样()downsample late)，以使卷积层具有更大的激活矩阵(activation map)：activation map的尺寸一般由两个因素决定，即为输入尺寸(图片的宽高)以及downsample时的步长</li>
+</ul>
+<p>研究表明，在网络中较晚的进行downsample可以提高准确率。</p>
+<p>综上，策略一和策略二目的在于保持准确率的同时减小参数数量，而策略三测试在一定参数数量限制的前提下最大化准确率。</p>
+<h1 id="The-Fire-Module"><a href="#The-Fire-Module" class="headerlink" title="The Fire Module"></a>The Fire Module</h1><p><img src="2018-08-03-神经网络模型-SqueezeNet/file_module.png" alt="file module"></p>
+<p>一个Fire module具有两个卷积层：squeeze 卷积层和ecpand layer。squeeze层的输出接入到expand层的输入。</p>
+<p>squeeze层是仅有$1\times 1$尺寸卷积核的卷积层，expand层同时有$1\times 1$和$3\times 3$尺寸的卷积核。卷积核的数量$s_{1\times 1}, e_{1\times 1}, e_{3\times 3}$都是超参数，可以调整。在使用fire module时，必须让$s_{1\times 1}$小于$(e_{1\times1 } + e_{3\times 3})$，以达到减小input channels的目的。</p>
+<h1 id="SqueezeNet-整体架构"><a href="#SqueezeNet-整体架构" class="headerlink" title="SqueezeNet 整体架构"></a>SqueezeNet 整体架构</h1><p>网络整体架构如图所示，比较清晰明了。</p>
+<p><img src="2018-08-03-神经网络模型-SqueezeNet/SqueezeNet_Arch.png" alt="SqueezeNet_Arch"></p>
 
       
     </div>
 
+    
+
+    <div>
+    
+    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+
+</div>
+    
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Haines Luo</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://qichiblog.cn/2018-08-03-神经网络模型-SqueezeNet.html" title="神经网络模型:SqueezeNet">http://qichiblog.cn/2018-08-03-神经网络模型-SqueezeNet.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/paper/" rel="tag"><i class="fa fa-tag"></i> paper</a>
+          
+            <a href="/tags/CV/" rel="tag"><i class="fa fa-tag"></i> CV</a>
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+          
+            <a href="/tags/计算机视觉/" rel="tag"><i class="fa fa-tag"></i> 计算机视觉</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018-08-03-深度迁移学习：DDC方法.html" rel="next" title="深度迁移学习：DDC方法">
+                <i class="fa fa-chevron-left"></i> 深度迁移学习：DDC方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018-08-03-深度迁移学习-jAN方法.html" rel="prev" title="深度迁移学习:JAN方法">
+                深度迁移学习:JAN方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -387,8 +620,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -515,6 +757,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#研究动机"><span class="nav-number">1.</span> <span class="nav-text">研究动机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计策略"><span class="nav-number">2.</span> <span class="nav-text">设计策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Fire-Module"><span class="nav-number">3.</span> <span class="nav-text">The Fire Module</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SqueezeNet-整体架构"><span class="nav-number">4.</span> <span class="nav-text">SqueezeNet 整体架构</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -679,6 +937,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -760,6 +1022,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
