@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="栖迟">
 <meta property="og:description" content="2018 CVPR Best Paper Taskonomy 完成论文全文阅读，理解论文所做工作，Taskonomy构建思路、步骤 初步了解迁移学习思想 理解Beam Search算法思想以及算法流程 了解Boolean Integer Programming：0-1整数规划问题(通过0-1背包问题理解) 下载项目源码，以及模型和模型参数，在自己的测试图片运行代码 尝试阅读源码，效果不佳  迁移学">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-07T02:57:13.657Z">
+<meta property="og:updated_time" content="2018-08-08T10:17:16.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018年浙江大学暑期夏令营学习记录">
 <meta name="twitter:description" content="2018 CVPR Best Paper Taskonomy 完成论文全文阅读，理解论文所做工作，Taskonomy构建思路、步骤 初步了解迁移学习思想 理解Beam Search算法思想以及算法流程 了解Boolean Integer Programming：0-1整数规划问题(通过0-1背包问题理解) 下载项目源码，以及模型和模型参数，在自己的测试图片运行代码 尝试阅读源码，效果不佳  迁移学">
@@ -372,7 +372,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-07 10:57:13" itemprop="dateModified" datetime="2018-08-07T10:57:13+08:00">2018-08-07</time>
+                <time title="Modified: 2018-08-08 18:17:16" itemprop="dateModified" datetime="2018-08-08T18:17:16+08:00">2018-08-08</time>
               
             
           </span>
@@ -438,7 +438,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.5k</span>
+                <span title="Symbols count in article">1.8k</span>
               
 
               
@@ -526,15 +526,25 @@
 <li>并没有给出根据taskonomy训练的迁移模型！！！</li>
 </ul>
 <h2 id="2018-08-07"><a href="#2018-08-07" class="headerlink" title="2018-08-07"></a>2018-08-07</h2><ul>
-<li><p>论文实验思路</p>
-<ul>
+<li>论文实验思路<ul>
 <li>task-specified network: 基于ResNet-50魔改encoder，针对不同任务进行finetune，使用论文提供的数据集训练，作为迁移学习的源任务，或者baseline</li>
 <li>构建transfer function，用于迁移学习，使用task-specified network的representation进行迁移</li>
 <li>使用BIP的api计算出迁移策略，根据策略进行迁移</li>
 <li>在MIT places和ImageNet上迁移，对比不同数据集上人物之间的关系结构是否还存在</li>
 </ul>
-<p>​</p>
 </li>
+<li>规划<ul>
+<li>ImageNet、MIT places使用</li>
+<li>验证在ImageNet、MIT Places上的迁移</li>
+</ul>
+</li>
+</ul>
+<h2 id="2018-08-08"><a href="#2018-08-08" class="headerlink" title="2018-08-08"></a>2018-08-08</h2><ul>
+<li>ImageNet、MIT places数据集太大，而且论文并未明确告知使用了那一部分的子集</li>
+<li>目前思路为使用MIT Indoor数据集重新训练场景识别和物体识别任务</li>
+<li>开源的数据集只是标注！！！没有给原始数据！！！原始数据集要12TB！！！</li>
+<li>大致了解开源代码各部分的作用，给出了各种encoder、decoder以及优化器、训练步骤，以及最终的各任务模型参数</li>
+<li>需要继续了解如何训练！惨无人道！</li>
 </ul>
 
       
@@ -808,7 +818,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-CVPR-Best-Paper-Taskonomy"><span class="nav-number">1.</span> <span class="nav-text">2018 CVPR Best Paper Taskonomy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迁移学习"><span class="nav-number">2.</span> <span class="nav-text">迁移学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础神经网络学习"><span class="nav-number">3.</span> <span class="nav-text">基础神经网络学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对抗生成网络-GAN"><span class="nav-number">3.1.</span> <span class="nav-text">对抗生成网络(GAN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归神经网络-RNN"><span class="nav-number">3.2.</span> <span class="nav-text">递归神经网络(RNN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SqueezeNet"><span class="nav-number">3.3.</span> <span class="nav-text">SqueezeNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像风格迁移-Style-Transfer"><span class="nav-number">3.4.</span> <span class="nav-text">图像风格迁移(Style Transfer)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法练习"><span class="nav-number">4.</span> <span class="nav-text">算法练习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客搭建"><span class="nav-number">5.</span> <span class="nav-text">博客搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Taskonomy-实验结果复现"><span class="nav-number">6.</span> <span class="nav-text">Taskonomy 实验结果复现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-08-06"><span class="nav-number">6.1.</span> <span class="nav-text">2018-08-06</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-08-07"><span class="nav-number">6.2.</span> <span class="nav-text">2018-08-07</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-CVPR-Best-Paper-Taskonomy"><span class="nav-number">1.</span> <span class="nav-text">2018 CVPR Best Paper Taskonomy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迁移学习"><span class="nav-number">2.</span> <span class="nav-text">迁移学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础神经网络学习"><span class="nav-number">3.</span> <span class="nav-text">基础神经网络学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对抗生成网络-GAN"><span class="nav-number">3.1.</span> <span class="nav-text">对抗生成网络(GAN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归神经网络-RNN"><span class="nav-number">3.2.</span> <span class="nav-text">递归神经网络(RNN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SqueezeNet"><span class="nav-number">3.3.</span> <span class="nav-text">SqueezeNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像风格迁移-Style-Transfer"><span class="nav-number">3.4.</span> <span class="nav-text">图像风格迁移(Style Transfer)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法练习"><span class="nav-number">4.</span> <span class="nav-text">算法练习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客搭建"><span class="nav-number">5.</span> <span class="nav-text">博客搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Taskonomy-实验结果复现"><span class="nav-number">6.</span> <span class="nav-text">Taskonomy 实验结果复现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-08-06"><span class="nav-number">6.1.</span> <span class="nav-text">2018-08-06</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-08-07"><span class="nav-number">6.2.</span> <span class="nav-text">2018-08-07</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2018-08-08"><span class="nav-number">6.3.</span> <span class="nav-text">2018-08-08</span></a></li></ol></li></ol></div>
             
 
           </div>
