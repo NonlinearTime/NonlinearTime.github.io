@@ -108,30 +108,25 @@
 
 
 
-  <meta name="description" content="在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。 对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。 Deep Domain Confusion正是基于">
-<meta name="keywords" content="深度学习,迁移学习">
+  <meta name="description" content="2018年8月11日，2018年已经过去了三分之二，昨天突然得知的一些消息，以及引发的对过去大学生活的思绪，想来有必要写下点东西吧，也许是琐碎到日后都不愿看到想法，管他呢。">
+<meta name="keywords" content="感悟,思考,碎碎念">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度迁移学习：DDC方法">
-<meta property="og:url" content="http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法.html">
+<meta property="og:title" content="一点琐碎的想法">
+<meta property="og:url" content="http://qichiblog.cn/2018-08-11-一点琐碎的想法.html">
 <meta property="og:site_name" content="栖迟">
-<meta property="og:description" content="在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。 对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。 Deep Domain Confusion正是基于">
+<meta property="og:description" content="2018年8月11日，2018年已经过去了三分之二，昨天突然得知的一些消息，以及引发的对过去大学生活的思绪，想来有必要写下点东西吧，也许是琐碎到日后都不愿看到想法，管他呢。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法/domain_diff.png">
-<meta property="og:image" content="http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法/mmd.png">
-<meta property="og:image" content="http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法/DDC_Loss.png">
-<meta property="og:image" content="http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法/Arch.png">
-<meta property="og:updated_time" content="2018-08-06T01:27:24.931Z">
+<meta property="og:updated_time" content="2018-08-11T12:24:01.623Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度迁移学习：DDC方法">
-<meta name="twitter:description" content="在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。 对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。 Deep Domain Confusion正是基于">
-<meta name="twitter:image" content="http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法/domain_diff.png">
+<meta name="twitter:title" content="一点琐碎的想法">
+<meta name="twitter:description" content="2018年8月11日，2018年已经过去了三分之二，昨天突然得知的一些消息，以及引发的对过去大学生活的思绪，想来有必要写下点东西吧，也许是琐碎到日后都不愿看到想法，管他呢。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法.html"/>
+  <link rel="canonical" href="http://qichiblog.cn/2018-08-11-一点琐碎的想法.html"/>
 
 
 
@@ -141,7 +136,7 @@
   };
 </script>
 
-  <title>深度迁移学习：DDC方法 | 栖迟</title>
+  <title>一点琐碎的想法 | 栖迟</title>
   
 
 
@@ -318,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法.html">
+    <link itemprop="mainEntityOfPage" href="http://qichiblog.cn/2018-08-11-一点琐碎的想法.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Haines Luo">
@@ -335,7 +330,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">深度迁移学习：DDC方法
+          <h2 class="post-title" itemprop="name headline">一点琐碎的想法
               
             
           </h2>
@@ -360,24 +355,12 @@
                 
               
 
-              <time title="Created: 2018-08-03 13:46:42" itemprop="dateCreated datePublished" datetime="2018-08-03T13:46:42+08:00">2018-08-03</time>
+              <time title="Created: 2018-08-11 17:03:40 / Modified: 20:24:01" itemprop="dateCreated datePublished" datetime="2018-08-11T17:03:40+08:00">2018-08-11</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-08-06 09:27:24" itemprop="dateModified" datetime="2018-08-06T09:27:24+08:00">2018-08-06</time>
               
             
           </span>
@@ -394,7 +377,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/迁移学习/" itemprop="url" rel="index"><span itemprop="name">迁移学习</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
 
                 
                 
@@ -409,8 +392,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018-08-03-深度迁移学习：DDC方法.html#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018-08-03-深度迁移学习：DDC方法.html" itemprop="commentCount"></span>
+                <a href="/2018-08-11-一点琐碎的想法.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018-08-11-一点琐碎的想法.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -418,7 +401,7 @@
 
           
           
-             <span id="/2018-08-03-深度迁移学习：DDC方法.html" class="leancloud_visitors" data-flag-title="深度迁移学习：DDC方法">
+             <span id="/2018-08-11-一点琐碎的想法.html" class="leancloud_visitors" data-flag-title="一点琐碎的想法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -443,7 +426,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">875</span>
+                <span title="Symbols count in article">3.2k</span>
               
 
               
@@ -457,11 +440,13 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="Reading time">6 mins.</span>
               
             </div>
           
 
+          
+              <div class="post-description">2018年8月11日，2018年已经过去了三分之二，昨天突然得知的一些消息，以及引发的对过去大学生活的思绪，想来有必要写下点东西吧，也许是琐碎到日后都不愿看到想法，管他呢。</div>
           
 
         </div>
@@ -477,27 +462,28 @@
       
 
       
-        <p>在图像识别领域，传统的有监督方法的一个众所周知的问题就是数据集偏差。许多理论和实验都表明，在测试集上的错误率上升，来源于测试集与训练集数据的分布差异。同时，由于源领域和目标领域的数据分布不同，在源领域训练好的分类器不能直接在目标领域使用。</p>
-<p>对领域不变性的优化，可以被认为是：找到一种表现形式，使得领域之间表现得尽可能的相似，从而完成分类的学习任务。</p>
-<p>Deep Domain Confusion正是基于这一思想，同时优化分类损失和领域之间的差异损失，从而达到领域自适应的目的。作者提出了一种新的CNN架构，通过引入了一层自适应层，来最小化领域之间的差异。作者使用MMD方法来衡量源领域和目标领域之间的差异。</p>
-<p><img src="2018-08-03-深度迁移学习：DDC方法/domain_diff.png" alt=""></p>
-<p>为了最小化两个领域之间的距离，DDC使用Maximum Mean Discrepancy(MMD)方法对距离进行衡量。定义了一个表现形式(representation)，$\phi (\cdot)$，作用域源域的样本以及目标域的用别样本之上。两个领域之间的距离如下计算：</p>
-<p><img src="2018-08-03-深度迁移学习：DDC方法/mmd.png" alt=""></p>
-<p>在考虑到距离损失之后，网络的损失修改成如下形式：</p>
-<p><img src="2018-08-03-深度迁移学习：DDC方法/DDC_Loss.png" alt=""></p>
-<blockquote>
-<p>MMD基本概念以及计算公式</p>
-<p><a href="https://blog.csdn.net/a1154761720/article/details/51516273" target="_blank" rel="noopener">MMD ：maximum mean discrepancy</a></p>
-<p><a href="https://blog.csdn.net/heavenpeien/article/details/80858151" target="_blank" rel="noopener">迁移学习 MMD距离</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/25418364" target="_blank" rel="noopener">迁移学习：MMD和再生核希尔伯特空间</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/29527729" target="_blank" rel="noopener">再生核希尔伯特空间</a></p>
-</blockquote>
-<p>作者通过加入一个自适应层(Adaptation Layer)来完成源领域向目标领域的迁移，实际上是一个维度较低 的全连接层。作者的直觉是，更低维度可以用来规范化源分类器的训练并且避免过拟合。</p>
-<p><img src="2018-08-03-深度迁移学习：DDC方法/Arch.png" alt=""></p>
-<p>主要有两个问题需要确定：在哪一层放入自适应层，以及自适应层的维度应该设为多少。</p>
-<p>第一个问题，作者通过计算source和target在不同层的表达之间的MMD数值，选择了数值最小的位置。</p>
-<p>第二个问题，作者通过网格搜索(Grid Search)方法，确定了能够最小化MMD的维度。</p>
-<p>最后，所有数据用于计算domain loss，有label的数据用于计算classification Loss。source CNN和target CNN 网络参数共享。</p>
+        <p>稍微不要脸的说，最近一两个月都在为自己的未来奔波，来来回回在武汉、北京、上海、杭州跑来跑去，想来这也是第二个到八月多还没有回家的暑假了吧。</p>
+<p>好吧，其实大三下学期开始就一直出于很压抑的状态，为什么呢，主要还是为自己的前途焦虑。其实要追溯的话，可以追溯到大三学年开始，那时候看着刚结束的大二暑假，很多同学都去实验室实习了，感到很紧迫，于是找到电信学院白翔老师谈了谈，想跟着学一点东西，但是后来课程压力太大，没有坚持下去(好了这其实就是借口)。根据这一两个月的夏令营经验来看，当初这个机会是很珍贵的，虽然结果不一定好，夏令营的结果也基本符合预期，但过程中稍微有一些遗憾吧，撇开不谈，等这个夏天结束，再做回顾。</p>
+<p>现在坐在浙江大学计算机学院的VIPA实验室中，大概是来到这里的第十五天了，日子过得可真快，这大概是这个夏天里最充实的日子了吧，每天八点多到实验室，晚上九点半走，而实验室的学长学姐们更晚一些才走，氛围很好。每天基本上都在看论文，写代码，写博客，哦对了，这个私人博客就是为了记录自己的研究生阶段成长过程而建立的呢。</p>
+<p>实验室宋明黎老师，还没来的时候，师兄师姐们都叫他黎叔，想来师生关系定是不错，体验一番后，感觉也确实是这样的。老师人很好，是那种踏踏实实做学术、而且很热爱学术的人，每天都从早上九点在实验室呆到晚上十点左右，周末也一样。可能成果上不像很多大牛那样每年好几篇顶会文章那样，但是凭借认真的工作，还是有很不错的成果的。这样的老师，可以给人一种安心的感觉，能够花费时间跟随的那种。虽然还不确定我是否会在他这读博士，还是给我讲了一些要注意的东西，真的是挺感激的。</p>
+<p>前几天老师让我好好思考一下是否真打算直博，是否参加最后的答辩。后来思来想去，可以说考虑了挺久的吧，最后直接和老师说了不打算直博了，老师的温和乃至支持的反应有些让我惊讶。其实惭愧的是，来之前就不打算直博的，或者说，在参加各个夏令营的时候，就已经确定了出国读博的大致规划。那么，又是什么让我考虑了这么久呢，我觉得还是需要记下来。</p>
+<p>其实这几天想了很多。首先是研究生去向问题，信工所可以毫不犹豫地放弃。在计算所那边拿了个处理器、体系结构方面的offer，而且面试的老师感觉都很淳朴、很接地气，面试的时候说的一些话其实就和长辈一样，和我套近乎方式真的很可爱。而上科大虞晶怡老师是真的大牛，他们都这么说，顶会论文每年发的很多。但是看论文引用量，很多都是没多少引用的，而且很多都是和其他大机构什么的联合发表，总感觉还是有点虚。但是虞晶怡老师，说话声音是真的好听啊！而且为人应该也很好，几次交流中，虽然没见着面，感觉还是比较关心学生个人的发展的。而且，听招生老师说他很欣赏我，感觉以我的水平，到他那去应该可以得到重点培养的。再就是浙大这儿了，老师人很不错，工作也很不错，但是浙大夏令营只能直博。</p>
+<p>所以放弃了浙大直博，以现有的几个offer来看，基本上与名校无缘，剩下只有九推了。虽然这个夏天，也逐渐理解了为什么研究生阶段导师更重要，但是在我的内心深处，还是有一定的名校情结的啊！回想起当年高考失利后甚至想复读的心情，回想起和别人说起想要保研时的壮志豪言，感觉心疼，感觉为自己这三年过得比高三还辛苦的日子，惋惜。</p>
+<p>事实上，窥一斑而知全豹，在实验室这段日里，我发现曾经对视觉方向的信念并不是那么坚不可摧，乃至可能在时代的浪潮影响下岌岌可危。事实上，这世上并没有什么人工智能，有的只是一项一项的识别、感知任务。每个任务背后的，是繁复的模型，是大量的计算，是不断调试模型的过程。而科研呢，说到底，还是在不断的重复实验、试错之中积累，积累到一定程度将成果发表出来，仅此而已。所以，，科研需要的，更可能是耐得住寂寞的性子，以及十年如一日的对科研的热爱。而在视觉这一块呢，在触摸到人类认知的边缘之后，剩下的，可能就是不断地调整模型，调整参数，获得些许的进展。当对未知事物的热情褪去后，我的兴趣，真的能够支撑我今后五年的科研生涯吗？我不知道，我还没由深入参与到科研之中，也许我能够从中发掘到真正的乐趣，但是，以我现在的状态、阅历与学识，做出一个决定未来五年的决定，对我而言是不负责任的。</p>
+<p>何况，博士这条路，是越走越窄的，博士只是在他研究的领域知道的多一些，但是并不是真正平常意义上学识渊博的。这一点，在宋老师指出博士生应当抓住一点不停地往下深入之后，越发能够理解了。所以，在这条路坚持走下去，走到最后，基本上就是一辈子的研究生活了。作为一个有追求的人，在国内越来越大的科研压力之中，必然只能和老师那样，整天待在实验室拼命，收入却可能对不起十余年孜孜不倦的追求。那时候，陪陪家人可能很难有机会，这样真的是我想要的吗？</p>
+<p>我不想成为一个世俗的人，我有着从小到大都藏在心里的想要改变世界的梦。至今记得当初高三时写给未来自己的一封信，上面写着要让这个世界因为自己存在过而有些许改变，哪怕微不足道。虽然当时，包括现在都觉得，从唯物主义角度，人存在过就一定会产生对世界的影响：）。但是我的家境并不好，可能就指望我来实现阶级上升，能够不负期待，成为家里的顶梁柱，我想找到一个我爱的人爱我的人与她共度余生，我想能够给她尽可能好的一切，我想有个快乐无忧无虑的家庭。这样，花费五年乃至更长的年轻时光，去走这样一条高风险的路，真的负责任吗。我有梦想，我内心是一个十分理想主义的人，但是同时我又是一个看得清现实的人，这样的话，trade-off就很重要了吧。</p>
+<p>所以，先读研究生，之后根据自己是否真正有对科研真正的热爱在作出选择，是我现在的最优解了。</p>
+<p>之后的选择，似乎就是是计算所和上科大了。计算所包括入学后的研究方向，意味着之后无论学术还是工作都能够很平稳度过，维持中产生活应该不难。而上科大呢，如果不出国，那么意味着与名校绝缘，留下或许很难忘掉的遗憾，但是似乎却是能够个人得到更加充分的发展，包括虞晶怡老师第一次电话就开始规划的创业之路。这一次的选择，我更加偏向了后者吧，我可能更相信的自己的潜力，有时候，确实需要为自己坚定地做出决定。</p>
+<p>但是距离最后的决定还有一段时间呢，继续纠结吧，名校与牛导，真是有些难以抉择呢。</p>
+<p>为啥不能得兼呢？可能还是缺乏一些信心吧，日后细说。</p>
+<p>洋洋洒洒写了快三千个字了，这才回想起来想要写下这篇杂念的缘由，那就是昨天突然看见老姐发的动态，很简单附了一张结婚证的照片，宣布她结婚了。</p>
+<p>当时代码看的头疼，看到这条动态，瞬间提神醒脑，乃至于现在还处于惊讶状态中。对于我来说，可能有点难以理解，但是这确实是及其突然的事情，因为两个月前，我甚至不知道老姐有男朋友，一个月前，才知道他长啥样，然后现在突然就结婚了，可想而知，这样突如其来让我措不及防，及时平常自认为已经很难有事情可以让我这样惊讶了。</p>
+<p>昨天到现在，除了默默在心里祝福，更多的，还是对自己的反思吧。上了大学之后，为了自己保持独立性，我很少主动与家人联系，电话只在要事非打不可的情况下打回去，只需要家里提供基本的生活费就行了。甚至在微信上也觉得没什么好说的，寥寥几句而已。所以，老姐结婚这么大的事情毫不知情，还有前一阵子奶奶的病，家里和叔叔婶婶的纠纷，都没有及时的了解，想来真是惭愧，过于关注自己，而缺乏与家人的交流。</p>
+<p>同时也意识到了意见极为严肃的事情，老姐们都有对象甚至结婚了，我现在孑然一身连对象都没有，岂不是，日后苦逼被催婚，连个借口都没有了？？？</p>
+<p>好吧，现在回头看看这三年自认为比高中付出的多的大学生活，回想起对自己的大学本科不谈恋爱的约定，真是有些唏嘘啊！回想起，因为时常告诫自己而刻意保持距离的一个个的她，陆续脱单找到伴侣而最终只能错过，除了祝福，说到底还是有些遗憾吧。</p>
+<p>有时候，也应该对自己有些放松，或者，果断的作出决定。</p>
+<p>遗憾总是会有的，就让它们和那些美好，一同住进回忆里吧。</p>
+<p>碎碎念就到这儿，也该停一会儿了，找回那个理性的自己，下次再续写吧！</p>
 
       
     </div>
@@ -529,7 +515,7 @@
     <strong>Post author:  </strong>Haines Luo</li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法.html" title="深度迁移学习：DDC方法">http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法.html</a>
+    <a href="http://qichiblog.cn/2018-08-11-一点琐碎的想法.html" title="一点琐碎的想法">http://qichiblog.cn/2018-08-11-一点琐碎的想法.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -542,9 +528,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
-          
-            <a href="/tags/迁移学习/" rel="tag"><i class="fa fa-tag"></i> 迁移学习</a>
+            <a href="/tags/想法/" rel="tag"><i class="fa fa-tag"></i> 想法</a>
           
         </div>
       
@@ -557,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-08-03-Academic-Vocabulary-in-Cs.html" rel="next" title="Academic Vocabulary in Cs">
-                <i class="fa fa-chevron-left"></i> Academic Vocabulary in Cs
+              <a href="/2018-08-03-深度迁移学习-jAN方法.html" rel="next" title="深度迁移学习:JAN方法">
+                <i class="fa fa-chevron-left"></i> 深度迁移学习:JAN方法
               </a>
             
           </div>
@@ -566,10 +550,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018-08-03-神经网络模型-SqueezeNet.html" rel="prev" title="神经网络模型:SqueezeNet">
-                神经网络模型:SqueezeNet <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

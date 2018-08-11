@@ -1,3 +1,4 @@
+http://qichiblog.cn/2018-08-11-一点琐碎的想法.html
 http://qichiblog.cn/2018-08-03-深度迁移学习-jAN方法.html
 http://qichiblog.cn/2018-08-03-神经网络模型-SqueezeNet.html
 http://qichiblog.cn/2018-08-03-深度迁移学习：DDC方法.html
