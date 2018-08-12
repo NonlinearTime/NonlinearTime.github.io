@@ -4,14 +4,22 @@
 
     
   <url>
-    <loc>http://qichiblog.cn/2018-08-11-%E4%B8%80%E7%82%B9%E7%90%90%E7%A2%8E%E7%9A%84%E6%83%B3%E6%B3%95.html</loc>
-    <lastmod>2018-08-11T12:24:51.087Z</lastmod>
+    <loc>http://qichiblog.cn/2018-08-02-2018%E5%B9%B4%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E6%9A%91%E6%9C%9F%E5%A4%8F%E4%BB%A4%E8%90%A5%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.html</loc>
+    <lastmod>2018-08-12T08:54:06.796Z</lastmod>
     <data>
         <display>
-        <title>一点琐碎的想法</title>
-        <pubTime>2018-08-11T09:03:40.000Z</pubTime>
+        <title>2018年浙江大学暑期夏令营学习记录</title>
+        <pubTime>2018-08-02T10:31:16.000Z</pubTime>
         
-        <tag>想法</tag>
+        <tag>计算机视觉</tag>
+         
+        <tag>算法</tag>
+         
+        <tag>CV</tag>
+         
+        <tag>paper</tag>
+         
+        <tag>夏令营</tag>
          
          
            
@@ -24,22 +32,14 @@
 
     
   <url>
-    <loc>http://qichiblog.cn/2018-08-02-2018%E5%B9%B4%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E6%9A%91%E6%9C%9F%E5%A4%8F%E4%BB%A4%E8%90%A5%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.html</loc>
-    <lastmod>2018-08-11T09:05:38.800Z</lastmod>
+    <loc>http://qichiblog.cn/2018-08-11-%E4%B8%80%E7%82%B9%E7%90%90%E7%A2%8E%E7%9A%84%E6%83%B3%E6%B3%95.html</loc>
+    <lastmod>2018-08-11T12:24:51.087Z</lastmod>
     <data>
         <display>
-        <title>2018年浙江大学暑期夏令营学习记录</title>
-        <pubTime>2018-08-02T10:31:16.000Z</pubTime>
+        <title>一点琐碎的想法</title>
+        <pubTime>2018-08-11T09:03:40.000Z</pubTime>
         
-        <tag>算法</tag>
-         
-        <tag>paper</tag>
-         
-        <tag>CV</tag>
-         
-        <tag>计算机视觉</tag>
-         
-        <tag>夏令营</tag>
+        <tag>想法</tag>
          
          
            
@@ -81,9 +81,9 @@
         <title>深度迁移学习：DDC方法</title>
         <pubTime>2018-08-03T05:46:42.000Z</pubTime>
         
-        <tag>迁移学习</tag>
-         
         <tag>深度学习</tag>
+         
+        <tag>迁移学习</tag>
          
          
            
@@ -103,9 +103,9 @@
         <title>深度迁移学习:JAN方法</title>
         <pubTime>2018-08-03T12:27:16.000Z</pubTime>
         
-        <tag>迁移学习</tag>
-         
         <tag>深度学习</tag>
+         
+        <tag>迁移学习</tag>
          
          
            
@@ -125,13 +125,13 @@
         <title>神经网络模型:SqueezeNet</title>
         <pubTime>2018-08-03T12:22:35.000Z</pubTime>
         
-        <tag>paper</tag>
+        <tag>计算机视觉</tag>
          
         <tag>CV</tag>
          
-        <tag>深度学习</tag>
+        <tag>paper</tag>
          
-        <tag>计算机视觉</tag>
+        <tag>深度学习</tag>
          
          
            
@@ -151,11 +151,11 @@
         <title>Taskonomy论文学习</title>
         <pubTime>2018-07-30T11:24:26.000Z</pubTime>
         
-        <tag>CVPR</tag>
+        <tag>CV</tag>
          
         <tag>paper</tag>
          
-        <tag>CV</tag>
+        <tag>CVPR</tag>
          
          
            
@@ -175,11 +175,11 @@
         <title>深度迁移学习</title>
         <pubTime>2018-07-31T12:44:03.000Z</pubTime>
         
-        <tag>迁移学习</tag>
+        <tag>计算机视觉</tag>
          
         <tag>深度学习</tag>
          
-        <tag>计算机视觉</tag>
+        <tag>迁移学习</tag>
          
          
            
@@ -201,11 +201,11 @@
         
         <tag>算法</tag>
          
-        <tag>二分查找</tag>
-         
         <tag>数组</tag>
          
         <tag>中位数</tag>
+         
+        <tag>二分查找</tag>
          
          
            
@@ -227,9 +227,9 @@
         
         <tag>算法</tag>
          
-        <tag>二分查找</tag>
-         
         <tag>数组</tag>
+         
+        <tag>二分查找</tag>
          
          
            
