@@ -108,21 +108,25 @@
 
 
 
-  <meta name="keywords" content="互联网,计算机视觉,算法,虚拟现实,增强现实">
-<meta property="og:type" content="website">
-<meta property="og:title" content="栖迟">
-<meta property="og:url" content="http://qichiblog.cn/categories/深度学习/index.html">
+  <meta name="description" content="最近学习了深度残差网络，基于Tensorflow实现了一遍，果断踩坑，在此记录。">
+<meta name="keywords" content="Tensorflow,参数初始化,神经网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorflow-卷积核参数初始化">
+<meta property="og:url" content="http://qichiblog.cn/2018-08-13-Tensorflow-卷积核参数初始化.html">
 <meta property="og:site_name" content="栖迟">
+<meta property="og:description" content="最近学习了深度残差网络，基于Tensorflow实现了一遍，果断踩坑，在此记录。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-13T06:38:40.484Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="栖迟">
+<meta name="twitter:title" content="Tensorflow-卷积核参数初始化">
+<meta name="twitter:description" content="最近学习了深度残差网络，基于Tensorflow实现了一遍，果断踩坑，在此记录。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://qichiblog.cn/categories/深度学习/"/>
+  <link rel="canonical" href="http://qichiblog.cn/2018-08-13-Tensorflow-卷积核参数初始化.html"/>
 
 
 
@@ -132,7 +136,7 @@
   };
 </script>
 
-  <title>Category: 深度学习 | 栖迟</title>
+  <title>Tensorflow-卷积核参数初始化 | 栖迟</title>
   
 
 
@@ -179,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <!--Github-start-->
@@ -248,7 +252,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
@@ -289,85 +293,299 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>深度学习<small>Category</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qichiblog.cn/2018-08-13-Tensorflow-卷积核参数初始化.html">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Haines Luo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="栖迟">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018-08-03-神经网络模型-SqueezeNet.html" itemprop="url">
-              
-                <span itemprop="name">神经网络模型:SqueezeNet</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Tensorflow-卷积核参数初始化
+              
+            
+          </h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-03T20:22:35+08:00"
-              content="2018-08-03" >
-          08-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-13 14:21:20 / Modified: 14:38:40" itemprop="dateCreated datePublished" datetime="2018-08-13T14:21:20+08:00">2018-08-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tensorflow学习/" itemprop="url" rel="index"><span itemprop="name">Tensorflow学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018-08-13-Tensorflow-卷积核参数初始化.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018-08-13-Tensorflow-卷积核参数初始化.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018-08-13-Tensorflow-卷积核参数初始化.html" class="leancloud_visitors" data-flag-title="Tensorflow-卷积核参数初始化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">最近学习了深度残差网络，基于Tensorflow实现了一遍，果断踩坑，在此记录。</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近学习了深度残差神经网络，觉得思路挺简单，论文全篇没有很多数学公式的推导，以及整个框架的搭建具有很强的模块化特性，遂基于Tensorflow实现了一遍50层的ResNet，踩了个坑，开文纪念。</p>
+<p>症状就是在确保网络的架构没有出现问题的前提下，训练完全没有效果，就是训练个一万次损失都不会下降的样子，无论怎么更换训练方式都是这样，连续困扰了很多天，无法解决。</p>
+<p>于是为了写这篇文章，还是找到了问题出在哪，就是在卷积层卷积核的初始化时，使用了tf.random_normal初始化。而没有使用tf.truncated_normal初始化，导致了梯度下降算法基本没有效果。</p>
+<p>了解了两个函数的区别之后，大致可以理解为什么会出现这种现象：参数初始值没有限定在一定的范围之内，由于参数量很大，random_normal可能会出现极大值，而随机梯度下降时学习率一般设置的很小，那么极大值怎么能优化掉嘛。。</p>
+<p>下面给出两个函数的区别。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.truncated_normal(shape, mean=<span class="number">0.0</span>, stddev=<span class="number">1.0</span>, dtype=tf.float32, seed=<span class="keyword">None</span>, name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>从<strong>截断</strong>的正态分布中输出随机值。<br>生成的值服从具有指定平均值和标准偏差的正态分布，如果生成的值大于平均值2个标准偏差的值则丢弃重新选择。</p>
+<p>在正态分布的曲线中，横轴区间（μ-σ，μ+σ）内的面积为68.268949%。<br>横轴区间（μ-2σ，μ+2σ）内的面积为95.449974%。<br>横轴区间（μ-3σ，μ+3σ）内的面积为99.730020%。<br>X落在（μ-3σ，μ+3σ）以外的概率小于千分之三，在实际问题中常认为相应的事件是不会发生的，基本上可以把区间（μ-3σ，μ+3σ）看作是随机变量X实际可能的取值区间，这称之为正态分布的“3σ”原则。<br>在tf.truncated_normal中如果x的取值在区间（μ-2σ，μ+2σ）之外则重新进行选择。这样保证了生成的值都在均值附近。</p>
+<p>参数:</p>
+<ul>
+<li>shape: 一维的张量，也是输出的张量。</li>
+<li>mean: 正态分布的均值。</li>
+<li>stddev: 正态分布的标准差。</li>
+<li>dtype: 输出的类型。</li>
+<li>seed: 一个整数，当设置之后，每次生成的随机数都一样。</li>
+<li>name: 操作的名字。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.random_normal(shape, mean=<span class="number">0.0</span>, stddev=<span class="number">1.0</span>, dtype=tf.float32, seed=<span class="keyword">None</span>, name=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<p>从正态分布中输出随机值。<br>参数:</p>
+<ul>
+<li>shape: 一维的张量，也是输出的张量。</li>
+<li>mean: 正态分布的均值。</li>
+<li>stddev: 正态分布的标准差。</li>
+<li>dtype: 输出的类型。</li>
+<li>seed: 一个整数，当设置之后，每次生成的随机数都一样。</li>
+<li>name: 操作的名字。</li>
+</ul>
 
       
     </div>
 
+    
+
+    <div>
+    
+    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+
+</div>
+    
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Haines Luo</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://qichiblog.cn/2018-08-13-Tensorflow-卷积核参数初始化.html" title="Tensorflow-卷积核参数初始化">http://qichiblog.cn/2018-08-13-Tensorflow-卷积核参数初始化.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+          
+            <a href="/tags/Tensorflow/" rel="tag"><i class="fa fa-tag"></i> Tensorflow</a>
+          
+            <a href="/tags/神经网络/" rel="tag"><i class="fa fa-tag"></i> 神经网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018-08-11-一点琐碎的想法.html" rel="next" title="一点琐碎的想法">
+                <i class="fa fa-chevron-left"></i> 一点琐碎的想法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -688,6 +906,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -769,6 +991,30 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
