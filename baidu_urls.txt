@@ -1,3 +1,4 @@
+http://qichiblog.cn/2018-08-15-Python-Dict原理以及操作.html
 http://qichiblog.cn/2018-08-13-Tensorflow-卷积核参数初始化.html
 http://qichiblog.cn/2018-08-11-一点琐碎的想法.html
 http://qichiblog.cn/2018-08-03-深度迁移学习-jAN方法.html

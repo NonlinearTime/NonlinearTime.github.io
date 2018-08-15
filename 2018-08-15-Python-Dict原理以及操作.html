@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/app-32x32.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/app-16x16.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="使用python经常写的一些代码都是在tensorflow框架下，对python原生的库以及内置函数一直没有深入的了解。最近开始准备ccf的第三道题，也就是说字符串处理的题，准备用python大法处理，经常用字典这一数据结构，在此记录其实现原理和基本操作">
+<meta name="keywords" content="python3.6, 字典, 字典操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python: Dict原理以及操作">
+<meta property="og:url" content="http://qichiblog.cn/2018-08-15-Python-Dict原理以及操作.html">
+<meta property="og:site_name" content="栖迟">
+<meta property="og:description" content="使用python经常写的一些代码都是在tensorflow框架下，对python原生的库以及内置函数一直没有深入的了解。最近开始准备ccf的第三道题，也就是说字符串处理的题，准备用python大法处理，经常用字典这一数据结构，在此记录其实现原理和基本操作">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/hash.png">
+<meta property="og:image" content="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/probing.png">
+<meta property="og:image" content="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/insert.png">
+<meta property="og:image" content="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/resizing.png">
+<meta property="og:image" content="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/delete.png">
+<meta property="og:updated_time" content="2018-08-15T03:06:18.949Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python: Dict原理以及操作">
+<meta name="twitter:description" content="使用python经常写的一些代码都是在tensorflow框架下，对python原生的库以及内置函数一直没有深入的了解。最近开始准备ccf的第三道题，也就是说字符串处理的题，准备用python大法处理，经常用字典这一数据结构，在此记录其实现原理和基本操作">
+<meta name="twitter:image" content="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/hash.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://qichiblog.cn/2018-08-15-Python-Dict原理以及操作.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Python: Dict原理以及操作 | 栖迟</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <!--Github-start-->
+    <a href="https://github.com/NonlinearTime" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <!--Github-end-->
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">栖迟</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">但行好事，莫问前程</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qichiblog.cn/2018-08-15-Python-Dict原理以及操作.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Haines Luo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="栖迟">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Python: Dict原理以及操作
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-15 10:33:44 / Modified: 11:06:18" itemprop="dateCreated datePublished" datetime="2018-08-15T10:33:44+08:00">2018-08-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018-08-15-Python-Dict原理以及操作.html#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018-08-15-Python-Dict原理以及操作.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018-08-15-Python-Dict原理以及操作.html" class="leancloud_visitors" data-flag-title="Python: Dict原理以及操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views: </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">12k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">22 mins.</span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">使用python经常写的一些代码都是在tensorflow框架下，对python原生的库以及内置函数一直没有深入的了解。最近开始准备ccf的第三道题，也就是说字符串处理的题，准备用python大法处理，经常用字典这一数据结构，在此记录其实现原理和基本操作</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原文链接：<a href="http://www.laurentluce.com/posts/python-dictionary-implementation/" target="_blank" rel="noopener">python-dictionary-implementation</a></p>
+<p>这篇文章描述了在Python中字典是如何实现的。</p>
+<h1 id="字典实现原理"><a href="#字典实现原理" class="headerlink" title="字典实现原理"></a>字典实现原理</h1><p>字典通过键(<code>key</code>)来索引，它可以被看做是关联数组。我们在一个字典中添加3个键/值对：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'c'</span>] = <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d</span><br><span class="line">&#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>, <span class="string">'c'</span>: <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>可以这样访问字典值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'a'</span>]</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'b'</span>]</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'c'</span>]</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d[<span class="string">'d'</span>]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">    File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">KeyError: <span class="string">'d'</span></span><br></pre></td></tr></table></figure>
+<p>键’d’不存在，所以抛出了KeyError异常。</p>
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p>Python字典是用哈希表(<code>hash table</code>)实现的。哈希表是一个数组，它的索引是对键运用哈希函数(<code>hash function</code>)求得的。哈希函数的作用是将键均匀地分布到数组中，一个好的哈希函数会将冲突（译者注：冲突指不同键经过哈希函数计算得到相同的索引，这样造成索引重复的冲突。）的数量降到最小。Python没有这类哈希函数，它最重要的哈希函数（用于字符串和整数）很常规：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(hash, (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>map(hash, (<span class="string">"namea"</span>, <span class="string">"nameb"</span>, <span class="string">"namec"</span>, <span class="string">"named"</span>))</span><br><span class="line">[<span class="number">-1658398457</span>, <span class="number">-1658398460</span>, <span class="number">-1658398459</span>, <span class="number">-1658398462</span>]</span><br></pre></td></tr></table></figure>
+<p>在这篇文章的余下部分里，我们假定用字符串作为字典的键。Python中字符串的哈希函数定义如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">arguments: string object</span><br><span class="line"><span class="keyword">return</span>: hash</span><br><span class="line">function: string_hash:</span><br><span class="line">    <span class="keyword">if</span> hash cached:</span><br><span class="line">        <span class="keyword">return</span> it</span><br><span class="line">    set len to string<span class="string">'s length</span></span><br><span class="line"><span class="string">    initialize var p ponting to 1st char of string object</span></span><br><span class="line"><span class="string">    set x to value pointed by p left shifted by 7 bits</span></span><br><span class="line"><span class="string">    while len &gt;= 0:</span></span><br><span class="line"><span class="string">        set var x to (1000003 * x) xor value pointed by p</span></span><br><span class="line"><span class="string">        increment pointer p</span></span><br><span class="line"><span class="string">    set x to x xor length of string object</span></span><br><span class="line"><span class="string">    cached x as the hash so we don'</span>t need to calculate it again</span><br><span class="line">    <span class="keyword">return</span> x <span class="keyword">as</span> the hash</span><br></pre></td></tr></table></figure>
+<p>如果你在Python中运行 hash(‘a’)，string_hash()函数将会被执行并返回12416037344。这里我们假定我们使用的时64位机器。（译者注：这篇文章讲述的是Python2的字典实现）</p>
+<p>如果一个长度为x的数组被用来存储键/值对，那么我们用<code>x-1</code>作为掩码来计算数组中slot的索引，这使得计算slot索引的计算非常快。找到一个空slot的概率很大，原因是下述调整大小的机制。这意味着在绝大多数情况下使用简单的计算是很有意义的。如果数组的大小是8，那么’a’的索引将会是<code>hash(&#39;a&#39;) &amp; 7 = 0</code>。<code>&#39;b&#39;</code>的索引是3，<code>&#39;c&#39;</code>的索引是2，<code>&#39;z&#39;</code>的索引和<code>&#39;b&#39;</code>一样都是3因此便产生了冲突。</p>
+<p><img src="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/hash.png" alt="hash table"></p>
+<p>我们可以看到当键是连续的时候，Python的哈希函数能很好地运作，因为这类数据极为常见。然而，当我们添加了键<code>&#39;z&#39;</code>冲突就产生了，因为它（译者注：这里是指这些key经过哈希函数计算得到的索引）不够连续。</p>
+<p>我们可以使用一个<code>链表(linked list)</code>来存储hash值相同的键/值对，但是这样会增加查找的时间复杂度（再也不是<code>O(1)</code>了）。下面的部分描述了Python字典中用到的冲突解决方法。</p>
+<h2 id="开放地址法"><a href="#开放地址法" class="headerlink" title="开放地址法"></a>开放地址法</h2><p>开放地址法是一个用探测手段来解决冲突的方法。在上述<code>&#39;z&#39;</code>键的例子中，索引为3的slot在数组中已经被使用了，因此我们需要探测出一个尚未被占用的索引。因为需要探测，所以添加一个键/值对可能需要更多的时间，但是查找却是O(1)时间复杂度的，这正是我们诉求的。</p>
+<p>二次探查序列是用来查找空闲slot的，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">j = (<span class="number">5</span> * j) + <span class="number">1</span> + perturb;</span><br><span class="line">perturb &gt;&gt;= PERTURB_SHIFT;</span><br><span class="line">use j % <span class="number">2</span> ** i <span class="keyword">as</span> the next table index;</span><br></pre></td></tr></table></figure>
+<p>你可以在源代码<a href="http://svn.python.org/projects/python/trunk/Objects/dictobject.c" target="_blank" rel="noopener">dictobject.c</a>中找到更多关于探测序列的内容。详细的探测机制的解释在源码的头部。</p>
+<p><img src="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/probing.png" alt="probing sequence"></p>
+<p>现在让我们顺着一个例子来看看Python实现的源码。</p>
+<h2 id="字典的C数据结构"><a href="#字典的C数据结构" class="headerlink" title="字典的C数据结构"></a>字典的C数据结构</h2><p>下面的C结构被用来存储一个字典项：键/值对。哈希值、键和值都存储在这个结构中。<code>PyObject</code>是Python对象的基类（译者注：这里只是类的概念，CPython用C结构体抽象出了Python中的类概念）。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    Py_ssize_t me_hash;</span><br><span class="line">    PyObject *me_key;</span><br><span class="line">    PyObject *me_value;</span><br><span class="line">&#125; PyDictEntry;</span><br></pre></td></tr></table></figure>
+<p>下面的结构代表了一个字典。<code>ma_fill</code>是使用了的slots加dummy slots的数量和。当一个键值对被移除了时，它占据的那个slot（译者注：slot一般翻译为“槽”，个人比较喜欢直接用英文，通俗地讲它就是指一个抽象的存储位置）会被标记为dummy。<code>ma_used</code>是被占用了（即活跃的）的slots数量。<code>ma_mask</code>等于数组长度减一，它被用来计算slot的索引。<code>ma_table</code>是一个（用来存键值对）的数组，<code>ma_smalltable</code>是一个初始大小为8的数组。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">dictobject</span> <span class="title">PyDictObject</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">dictobject</span> &#123;</span></span><br><span class="line">    PyObject_HEAD</span><br><span class="line">    Py_ssize_t ma_fill;</span><br><span class="line">    Py_ssize_t ma_used;</span><br><span class="line">    Py_ssize_t ma_mask;</span><br><span class="line">    PyDictEntry *ma_table;</span><br><span class="line">    PyDictEntry *(*ma_lookup)(PyDictObject *mp, PyObject *key, <span class="keyword">long</span> hash);</span><br><span class="line">    PyDictEntry ma_smalltable[PyDict_MINSIZE];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="字典的初始化"><a href="#字典的初始化" class="headerlink" title="字典的初始化"></a>字典的初始化</h2><p>当你第一次创建一个字典，<code>PyDict_New()</code>函数会被调用。下面是精简了源码的伪码实现（它集中于原实现的关键点）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">returns new dictionary object</span><br><span class="line">function PyDict_New:</span><br><span class="line">    allocate new dictionary object</span><br><span class="line">    clear dictionary<span class="string">'s table</span></span><br><span class="line"><span class="string">    set dictionary'</span>s number of used slots + dummy slots (ma_fill) to <span class="number">0</span></span><br><span class="line">    set dictionary<span class="string">'s number of active slots (ma_used) to 0</span></span><br><span class="line"><span class="string">    set dictionary'</span>s mask (ma_value) to dictionary size - <span class="number">1</span> = <span class="number">7</span></span><br><span class="line">    set dictionary<span class="string">'s lookup function to lookdict_string</span></span><br><span class="line"><span class="string">    return allocated dictionary object</span></span><br></pre></td></tr></table></figure>
+<h2 id="添加项"><a href="#添加项" class="headerlink" title="添加项"></a>添加项</h2><p>当添加一个新键值对时<code>PyDict_SetItem()</code>被调用，该函数带一个指向字典对象的指针和一个键值对作为参数。它检查该键是否为字符串并计算它的hash值（如果这个键的哈希值已经被缓存了则用缓存值）。然后<code>insertdict()</code>函数被调用来添加新的键/值对，如果使用了的slots和dummy slots的总量超过了数组大小的2/3则重新调整字典的大小。</p>
+<p>为什么事2/3？这是为了保证探测数列可以快速地找到可用的空slot（译者注：个人理解是如果空闲量较大，那么每次探测产生冲突的概率就会降低，从而减少探测次数）。稍候我们再看调整大小的函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">arguments: dictionary, key, value</span><br><span class="line"><span class="keyword">return</span>: <span class="number">0</span> <span class="keyword">if</span> OK <span class="keyword">or</span> <span class="number">-1</span></span><br><span class="line">function PyDict_SetItem:</span><br><span class="line">    <span class="keyword">if</span> key<span class="string">'s hash cached:</span></span><br><span class="line"><span class="string">        use hash</span></span><br><span class="line"><span class="string">    else:</span></span><br><span class="line"><span class="string">        calculate hash</span></span><br><span class="line"><span class="string">    call insertdict with dictionary object, key, hash and value</span></span><br><span class="line"><span class="string">    if key/value pair added successfully and capacity orver 2/3:</span></span><br><span class="line"><span class="string">        call dictresize to resize dictionary'</span>s table</span><br></pre></td></tr></table></figure>
+<p><code>insertdict()</code>使用查找函数<code>lookdict_string</code>来寻找空闲的slot，这和寻找key的函数是一样的。<code>lookdict_string()</code>函数利用hash和mask值计算slot的索引，如果它不能在slot索引（=hash &amp; mask）中找到这个key，它便开始如上述伪码描述循环来探测直到找到一个可用的空闲slot。第一次探测时，如果key为空(null)，那么如果找到了dummy slot则返回之。这给了之前删除的slots以重用的优先级。</p>
+<p>如果我们想添加这样的一些键/值对：{‘a’: 1, ‘b’: 2, ‘z’: 26, ‘y’: 25, ‘c’: 5, ‘x’: 24}，情形如下： 一个字典结构里的表大小为8。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">PyDict_SetItem: key=<span class="string">'a'</span>, value = <span class="number">1</span></span><br><span class="line">    hash = hash(<span class="string">'a'</span>) = <span class="number">12416037344</span></span><br><span class="line">    insertdict</span><br><span class="line">        lookdict_string</span><br><span class="line">            slot index = hash &amp; mask = <span class="number">12416037344</span> &amp; <span class="number">7</span> = <span class="number">0</span></span><br><span class="line">            slot <span class="number">0</span> <span class="keyword">is</span> <span class="keyword">not</span> used so <span class="keyword">return</span> it</span><br><span class="line">        init entry at index <span class="number">0</span> <span class="keyword">with</span> key, value <span class="keyword">and</span> hash</span><br><span class="line">        ma_used = <span class="number">1</span>, ma_fill = <span class="number">1</span></span><br><span class="line">PyDict_SetItem: key=<span class="string">'b'</span>, value = <span class="number">2</span></span><br><span class="line">    hash = hash(<span class="string">'b'</span>) = <span class="number">12544037731</span></span><br><span class="line">    insertdict</span><br><span class="line">        lookdict_string</span><br><span class="line">            slot index = hash &amp; mask = <span class="number">12544037731</span> &amp; <span class="number">7</span> = <span class="number">3</span></span><br><span class="line">            slot <span class="number">3</span> <span class="keyword">is</span> <span class="keyword">not</span> used so <span class="keyword">return</span> it</span><br><span class="line">        init entry at index <span class="number">3</span> <span class="keyword">with</span> key, value <span class="keyword">and</span> hash</span><br><span class="line">        ma_used = <span class="number">2</span>, ma_fill = <span class="number">2</span></span><br><span class="line">PyDict_SetItem: key=<span class="string">'z'</span>, value = <span class="number">26</span></span><br><span class="line">    hash = hash(<span class="string">'z'</span>) = <span class="number">15616046971</span></span><br><span class="line">    insertdict</span><br><span class="line">        lookdict_string</span><br><span class="line">            slot index = hash &amp; mask = <span class="number">15616046971</span> &amp; <span class="number">7</span> = <span class="number">3</span></span><br><span class="line">            slot <span class="number">3</span> <span class="keyword">is</span> used so probe <span class="keyword">for</span> a different slot: <span class="number">5</span> <span class="keyword">is</span> free</span><br><span class="line">        init entry at index <span class="number">5</span> <span class="keyword">with</span> key, value <span class="keyword">and</span> hash</span><br><span class="line">        ma_used = <span class="number">3</span>, ma_fill = <span class="number">3</span></span><br><span class="line">PyDict_SetItem: key=<span class="string">'y'</span>, value = <span class="number">25</span></span><br><span class="line">    hash = hash(<span class="string">'y'</span>) = <span class="number">15488046584</span></span><br><span class="line">    insertdict</span><br><span class="line">        lookdict_string</span><br><span class="line">            slot index = hash &amp; mask = <span class="number">15488046584</span> &amp; <span class="number">7</span> = <span class="number">0</span></span><br><span class="line">            slot <span class="number">0</span> <span class="keyword">is</span> used so probe <span class="keyword">for</span> a different slot: <span class="number">1</span> <span class="keyword">is</span> free</span><br><span class="line">        init entry at index <span class="number">1</span> <span class="keyword">with</span> key, value <span class="keyword">and</span> hash</span><br><span class="line">        ma_used = <span class="number">4</span>, ma_fill = <span class="number">4</span></span><br><span class="line">PyDict_SetItem: key=<span class="string">'c'</span>, value = <span class="number">3</span></span><br><span class="line">    hash = hash(<span class="string">'c'</span>) = <span class="number">12672038114</span></span><br><span class="line">    insertdict</span><br><span class="line">        lookdict_string</span><br><span class="line">            slot index = hash &amp; mask = <span class="number">12672038114</span> &amp; <span class="number">7</span> = <span class="number">2</span></span><br><span class="line">            slot <span class="number">2</span> <span class="keyword">is</span> <span class="keyword">not</span> used so <span class="keyword">return</span> it</span><br><span class="line">        init entry at index <span class="number">2</span> <span class="keyword">with</span> key, value <span class="keyword">and</span> hash</span><br><span class="line">        ma_used = <span class="number">5</span>, ma_fill = <span class="number">5</span></span><br><span class="line">PyDict_SetItem: key=<span class="string">'x'</span>, value = <span class="number">24</span></span><br><span class="line">    hash = hash(<span class="string">'x'</span>) = <span class="number">15360046201</span></span><br><span class="line">    insertdict</span><br><span class="line">        lookdict_string</span><br><span class="line">            slot index = hash &amp; mask = <span class="number">15360046201</span> &amp; <span class="number">7</span> = <span class="number">1</span></span><br><span class="line">            slot <span class="number">1</span> <span class="keyword">is</span> used so probe <span class="keyword">for</span> a different slot: <span class="number">7</span> <span class="keyword">is</span> free</span><br><span class="line">        init entry at index <span class="number">7</span> <span class="keyword">with</span> key, value <span class="keyword">and</span> hash</span><br><span class="line">        ma_used = <span class="number">6</span>, ma_fill = <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>目前为止，一切看起来像这样：</p>
+<p><img src="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/insert.png" alt="insert items"></p>
+<p>8个slots中的6个已经被使用了，这超过了数组容量的2/3，<code>dictresize()</code>函数会被调用来分配一个更大的数组。这个函数也负责将旧表中的数据复制到新表中。</p>
+<p>在这里，<code>dictresize()</code>函数会带一个<code>minused=24</code>的参数，24是<code>4 * ma_used</code>。当已使用的slots量很大时（超过50000），<code>minused=2 * ma_used</code>。为什么是已使用slots量的4倍？这样会减小重新调整字典大小的步骤并使字典更稀疏（译者注：这样就可以降低探测时冲突的概率）。</p>
+<p>新表的大小需要大于24，这是通过将当前表大小向左移位来实现的，每次左移一位直到它大于24，结果表大小变为了32（即8 -&gt; 16 -&gt; 32）。</p>
+<p>这就是重新调整表大小的结果：分配了一个大小为32的新表，旧表的项利用新掩码31（即32 - 1）计算哈希从而插到新表的相应slots中。结果看起来像这样：</p>
+<p><img src="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/resizing.png" alt="resize table"></p>
+<h2 id="移除项"><a href="#移除项" class="headerlink" title="移除项"></a>移除项</h2><p><code>PyDict_DelItem()</code>被用来删除一个字典项。key的哈希值被计算出来作为查找函数的参数，删除后这个slot就成为了dummy slot。</p>
+<p>假设我们想从字典中移除键’c’，最终我们得到下述数组：</p>
+<p><img src="https://harveyqing.gitbooks.io/python-read-and-write/content/images/pya/delete.png" alt="delete item"></p>
+<p>注意删除字典项的操作不会触发数组大小的调整（即使使用slots的数量远小于总slots量）。</p>
+<h1 id="字典操作"><a href="#字典操作" class="headerlink" title="字典操作"></a>字典操作</h1><h2 id="key-value"><a href="#key-value" class="headerlink" title="key-value"></a>key-value</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>唯一性</th>
+<th>数据类型</th>
+<th>可变性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>key (键)</strong></td>
+<td>唯一</td>
+<td>数字/字符串/元组</td>
+<td>不可</td>
+</tr>
+<tr>
+<td><strong>value (值)</strong></td>
+<td>不唯一</td>
+<td>任意</td>
+<td>可变</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="字典定义"><a href="#字典定义" class="headerlink" title="字典定义"></a>字典定义</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123; <span class="string">"say"</span>: <span class="string">"hello"</span>, <span class="string">"python"</span>:<span class="number">3</span>, <span class="number">10</span>:<span class="number">0.999</span>, <span class="number">20</span>:[<span class="string">"Hi"</span>, <span class="number">60</span>], (<span class="number">1</span>, <span class="number">2</span>):<span class="keyword">True</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> dict == &#123;<span class="string">'say'</span>: <span class="string">'hello'</span>, <span class="string">'python'</span>: <span class="number">3</span>, <span class="number">10</span>: <span class="number">0.999</span>, <span class="number">20</span>: [<span class="string">'Hi'</span>, <span class="number">60</span>], (<span class="number">1</span>, <span class="number">2</span>):<span class="keyword">True</span>&#125;<span class="number">123</span></span><br></pre></td></tr></table></figure>
+<h2 id="字典访问"><a href="#字典访问" class="headerlink" title="字典访问"></a>字典访问</h2><p>通过指定key值访问对应的value：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123; <span class="string">"say"</span>: <span class="string">"hello"</span>, <span class="string">"python"</span>:<span class="number">3</span>, <span class="number">10</span>:<span class="number">0.999</span>, <span class="number">20</span>:[<span class="string">"Hi"</span>, <span class="number">60</span>]&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> dict[<span class="string">"say"</span>] == <span class="string">"hello"</span></span><br><span class="line"><span class="keyword">assert</span> dict[<span class="number">20</span>] == [<span class="string">"Hi"</span>, <span class="number">60</span>]</span><br><span class="line"><span class="comment"># 不存在时 报KeyError</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(dict[<span class="string">"city"</span>]) </span><br><span class="line"><span class="keyword">except</span> KeyError:</span><br><span class="line">    pass123456789</span><br></pre></td></tr></table></figure>
+<h2 id="字典长度"><a href="#字典长度" class="headerlink" title="字典长度"></a>字典长度</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典长度</span></span><br><span class="line"><span class="keyword">assert</span> len(dict) == <span class="number">41234</span></span><br></pre></td></tr></table></figure>
+<h2 id="字典打印"><a href="#字典打印" class="headerlink" title="字典打印"></a>字典打印</h2><p>字典打印（以字符串形式）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典打印（以字符串形式）</span></span><br><span class="line"><span class="keyword">assert</span> str(dict) == <span class="string">"&#123;'city': 'nanjing', 'university': 'NUAA', 'college': 'cs', 'degree': 'master'&#125;"</span><span class="number">1234</span></span><br></pre></td></tr></table></figure>
+<h2 id="字典复制"><a href="#字典复制" class="headerlink" title="字典复制"></a>字典复制</h2><p>浅复制。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典复制</span></span><br><span class="line"><span class="keyword">assert</span> dict.copy() == dict</span><br><span class="line"><span class="keyword">assert</span> id(dict.copy()) != id(dict)<span class="number">12345</span></span><br></pre></td></tr></table></figure>
+<h2 id="字典取值"><a href="#字典取值" class="headerlink" title="字典取值"></a>字典取值</h2><h3 id="不修改-字典："><a href="#不修改-字典：" class="headerlink" title="不修改 字典："></a>不修改 字典：</h3><blockquote>
+<p>dict.get(key, default=None)</p>
+</blockquote>
+<p><strong>Args:</strong></p>
+<ul>
+<li>key: 字典中要查找的键。</li>
+<li>default: 如果指定键的值不存在时，<strong>返回</strong> 该默认值 。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回指定键的值</span></span><br><span class="line"><span class="keyword">assert</span> dict.get(<span class="string">"city"</span>) == <span class="string">"nanjing"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回指定键的值，如果值在字典中，default值无效</span></span><br><span class="line"><span class="keyword">assert</span> dict.get(<span class="string">"city"</span>, <span class="string">"Shanghai"</span>) == <span class="string">"nanjing"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回指定键的值，如果值不在字典中，返回default值</span></span><br><span class="line"><span class="keyword">assert</span> dict.get(<span class="string">"province"</span>, <span class="string">"jiangshu"</span>) == <span class="string">"jiangshu"</span><span class="number">12345678910</span></span><br></pre></td></tr></table></figure>
+<h3 id="修改-字典："><a href="#修改-字典：" class="headerlink" title="修改 字典："></a>修改 字典：</h3><blockquote>
+<p>dict.setdefault(key, default=None)</p>
+</blockquote>
+<p><strong>Args:</strong></p>
+<ul>
+<li>key: 字典中要查找的键。</li>
+<li>default: 如果指定键的值不存在时，<strong>返回</strong> 该默认值值，并 <strong>修改</strong> 字典，添加上该 key-value对 。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>&#125;    <span class="comment"># nanjing</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 和get()类似</span></span><br><span class="line">print(dict.setdefault(<span class="string">'city'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 但如果键不存在于字典中，将会返回default值。 并且修改字典，添加键并将值设为default</span></span><br><span class="line">print(dict.setdefault(<span class="string">'college'</span>, <span class="string">'cs'</span>))    <span class="comment"># cs</span></span><br><span class="line">print(dict.setdefault(<span class="string">'location'</span>))    <span class="comment"># None</span></span><br><span class="line">print(dict)    <span class="comment">#  &#123;'city': 'nanjing', 'university': 'NUAA', 'college': 'cs', 'location': None&#125;123456789</span></span><br></pre></td></tr></table></figure>
+<h2 id="key-存在"><a href="#key-存在" class="headerlink" title="key 存在"></a>key 存在</h2><blockquote>
+<p>if i in dict</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测键 city 是否存在</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">'city'</span> <span class="keyword">in</span> dict:</span><br><span class="line">    print(<span class="string">"键 city 存在"</span>)</span><br><span class="line"><span class="keyword">else</span> :</span><br><span class="line">    print(<span class="string">"键 city 不存在"</span>)<span class="number">1234567</span></span><br></pre></td></tr></table></figure>
+<h2 id="可遍历的-key-value-数组"><a href="#可遍历的-key-value-数组" class="headerlink" title="可遍历的 key-value 数组"></a>可遍历的 key-value 数组</h2><blockquote>
+<p>dict.items()</p>
+</blockquote>
+<p>以列表 返回 可遍历的 <strong>(key-value)元组数组</strong> 。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line">print(type(dict.items())) <span class="comment"># &lt;class 'dict_items'&gt;</span></span><br><span class="line"></span><br><span class="line">print(dict.items()) <span class="comment"># dict_items([('city', 'nanjing'), ('university:', 'NUAA'), ('college', 'cs'), ('degree', 'master')])</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> dict.items():</span><br><span class="line">    print(i, <span class="string">":\t"</span>, j)</span><br><span class="line"><span class="comment"># city :     nanjing</span></span><br><span class="line"><span class="comment"># university :   NUAA</span></span><br><span class="line"><span class="comment"># college :  cs</span></span><br><span class="line"><span class="comment"># degree :   master123456789101112</span></span><br></pre></td></tr></table></figure>
+<h2 id="key列表"><a href="#key列表" class="headerlink" title="key列表"></a>key列表</h2><blockquote>
+<p>dict.keys()</p>
+</blockquote>
+<p>以 dict列表 返回字典中的所有key。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以列表返回一个字典所有的key</span></span><br><span class="line">print(dict.keys())    <span class="comment"># dict_keys(['city', 'university', 'college', 'degree'])</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dict.keys():</span><br><span class="line">    print(i)</span><br><span class="line"><span class="comment"># city</span></span><br><span class="line"><span class="comment"># university</span></span><br><span class="line"><span class="comment"># college</span></span><br><span class="line"><span class="comment"># degree</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可转化为list进行操作</span></span><br><span class="line">list_ = list(dict.keys())</span><br><span class="line">list_.sort()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list_:</span><br><span class="line">    print(i)</span><br><span class="line"><span class="comment"># city</span></span><br><span class="line"><span class="comment"># college</span></span><br><span class="line"><span class="comment"># degree</span></span><br><span class="line"><span class="comment"># university123456789101112131415161718192021</span></span><br></pre></td></tr></table></figure>
+<h2 id="value列表"><a href="#value列表" class="headerlink" title="value列表"></a>value列表</h2><blockquote>
+<p>dict.values()</p>
+</blockquote>
+<p>以 dict列表 返回字典中的所有value。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以列表返回一个字典所有的value</span></span><br><span class="line">print(dict.values())    <span class="comment"># dict_values(['nanjing', 'NUAA', 'cs', 'master'])</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> dict.values():</span><br><span class="line">    print(i)</span><br><span class="line"><span class="comment"># nanjing</span></span><br><span class="line"><span class="comment"># NUAA</span></span><br><span class="line"><span class="comment"># cs</span></span><br><span class="line"><span class="comment"># master</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可转化为list进行操作</span></span><br><span class="line">list_ = list(dict.values())</span><br><span class="line">list_.sort()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list_:</span><br><span class="line">    print(i)</span><br><span class="line"><span class="comment"># NUAA</span></span><br><span class="line"><span class="comment"># cs</span></span><br><span class="line"><span class="comment"># master</span></span><br><span class="line"><span class="comment"># nanjing123456789101112131415161718192021</span></span><br></pre></td></tr></table></figure>
+<h2 id="字典合并"><a href="#字典合并" class="headerlink" title="字典合并"></a>字典合并</h2><p>通过 <code>update</code> 合并字典。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">"city"</span>:<span class="string">"nanjing"</span>, <span class="string">"university"</span>:<span class="string">"NUAA"</span>&#125;</span><br><span class="line">dict_2 = &#123;<span class="string">"college"</span>:<span class="string">"cs"</span>, <span class="string">"degree"</span>:<span class="string">"master"</span>&#125;</span><br><span class="line"></span><br><span class="line">dict.update(dict_2)</span><br><span class="line"><span class="keyword">assert</span> dict == &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;<span class="number">12345</span></span><br></pre></td></tr></table></figure>
+<h2 id="字典删除"><a href="#字典删除" class="headerlink" title="字典删除"></a>字典删除</h2><h3 id="通过-pop-："><a href="#通过-pop-：" class="headerlink" title="通过 .pop() ："></a>通过 <code>.pop()</code> ：</h3><blockquote>
+<p>dict.pop(key[,default])</p>
+</blockquote>
+<p>删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。</span></span><br><span class="line">print(dict.pop(<span class="string">'city'</span>))    <span class="comment"># nanjing</span></span><br><span class="line">print(dict)    <span class="comment"># &#123;'university': 'NUAA'&#125;</span></span><br><span class="line">print(dict.pop(<span class="string">'city'</span>, <span class="string">'college'</span>))    <span class="comment"># college123456</span></span><br></pre></td></tr></table></figure>
+<h3 id="通过-del-："><a href="#通过-del-：" class="headerlink" title="通过 del ："></a>通过 <code>del</code> ：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dict_1 = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除key-value:  'city': 'nanjing'</span></span><br><span class="line"><span class="keyword">del</span> dict_1[<span class="string">'city'</span>]    </span><br><span class="line"><span class="keyword">assert</span> dict_1 == &#123;<span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除字典</span></span><br><span class="line"><span class="keyword">del</span> dict_1            </span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(dict_1)</span><br><span class="line"><span class="keyword">except</span> NameError:</span><br><span class="line">    pass123456789101112</span><br></pre></td></tr></table></figure>
+<h3 id="通过-popitem-："><a href="#通过-popitem-：" class="headerlink" title="通过 .popitem() ："></a>通过 <code>.popitem()</code> ：</h3><blockquote>
+<p>dict.popitem()</p>
+</blockquote>
+<p>随机返回并删除字典中的一对键和值(一般删除末尾对)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机返回并删除字典中的一对键和值(一般删除末尾对)。</span></span><br><span class="line">print(dict.popitem())    <span class="comment"># ('degree', 'master')</span></span><br><span class="line">print(dict)    <span class="comment"># &#123;'city': 'nanjing', 'university': 'NUAA', 'college': 'cs'&#125;12345</span></span><br></pre></td></tr></table></figure>
+<h2 id="字典清空"><a href="#字典清空" class="headerlink" title="字典清空"></a>字典清空</h2><h3 id="通过-clear-："><a href="#通过-clear-：" class="headerlink" title="通过 .clear() ："></a>通过 <code>.clear()</code> ：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict_1 = &#123;<span class="string">'city'</span>: <span class="string">'nanjing'</span>, <span class="string">'university'</span>: <span class="string">'NUAA'</span>, <span class="string">'college'</span>: <span class="string">'cs'</span>, <span class="string">'degree'</span>: <span class="string">'master'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空字典</span></span><br><span class="line">dict_1.clear()        </span><br><span class="line"><span class="keyword">assert</span> dict_1 == &#123;&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    <div>
+    
+    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+
+</div>
+    
+    </div>
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Haines Luo</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://qichiblog.cn/2018-08-15-Python-Dict原理以及操作.html" title="Python: Dict原理以及操作">http://qichiblog.cn/2018-08-15-Python-Dict原理以及操作.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018-08-13-Tensorflow-卷积核参数初始化.html" rel="next" title="Tensorflow-卷积核参数初始化">
+                <i class="fa fa-chevron-left"></i> Tensorflow-卷积核参数初始化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Haines Luo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/NonlinearTime" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:hainesluo@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/HainesLuo" target="_blank" title="Twitter" rel="external nofollow"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/haines.luo" target="_blank" title="FB Page" rel="external nofollow"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字典实现原理"><span class="nav-number">1.</span> <span class="nav-text">字典实现原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#哈希表"><span class="nav-number">1.1.</span> <span class="nav-text">哈希表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开放地址法"><span class="nav-number">1.2.</span> <span class="nav-text">开放地址法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典的C数据结构"><span class="nav-number">1.3.</span> <span class="nav-text">字典的C数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典的初始化"><span class="nav-number">1.4.</span> <span class="nav-text">字典的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加项"><span class="nav-number">1.5.</span> <span class="nav-text">添加项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除项"><span class="nav-number">1.6.</span> <span class="nav-text">移除项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典操作"><span class="nav-number">2.</span> <span class="nav-text">字典操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#key-value"><span class="nav-number">2.1.</span> <span class="nav-text">key-value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典定义"><span class="nav-number">2.2.</span> <span class="nav-text">字典定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典访问"><span class="nav-number">2.3.</span> <span class="nav-text">字典访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典长度"><span class="nav-number">2.4.</span> <span class="nav-text">字典长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典打印"><span class="nav-number">2.5.</span> <span class="nav-text">字典打印</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典复制"><span class="nav-number">2.6.</span> <span class="nav-text">字典复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典取值"><span class="nav-number">2.7.</span> <span class="nav-text">字典取值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不修改-字典："><span class="nav-number">2.7.1.</span> <span class="nav-text">不修改 字典：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-字典："><span class="nav-number">2.7.2.</span> <span class="nav-text">修改 字典：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#key-存在"><span class="nav-number">2.8.</span> <span class="nav-text">key 存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可遍历的-key-value-数组"><span class="nav-number">2.9.</span> <span class="nav-text">可遍历的 key-value 数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#key列表"><span class="nav-number">2.10.</span> <span class="nav-text">key列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#value列表"><span class="nav-number">2.11.</span> <span class="nav-text">value列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典合并"><span class="nav-number">2.12.</span> <span class="nav-text">字典合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典删除"><span class="nav-number">2.13.</span> <span class="nav-text">字典删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-pop-："><span class="nav-number">2.13.1.</span> <span class="nav-text">通过 .pop() ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-del-："><span class="nav-number">2.13.2.</span> <span class="nav-text">通过 del ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-popitem-："><span class="nav-number">2.13.3.</span> <span class="nav-text">通过 .popitem() ：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字典清空"><span class="nav-number">2.14.</span> <span class="nav-text">字典清空</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-clear-："><span class="nav-number">2.14.1.</span> <span class="nav-text">通过 .clear() ：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Haines Luo</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Symbols count total: </span>
+    
+    <span title="Symbols count total">37k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    
+    <span title="Reading time total">1:08</span>
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'ycqm0bE6OKm5Sq5cELLderg2-gzGzoHsz',
+        appKey: 'EEqQn8sFYBEE2BYOlkgDXedt',
+        placeholder: '在此添加你的评论',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: true
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('Copy')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
