@@ -5,19 +5,19 @@
     
   <url>
     <loc>http://qichiblog.cn/2018-08-02-2018%E5%B9%B4%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E6%9A%91%E6%9C%9F%E5%A4%8F%E4%BB%A4%E8%90%A5%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.html</loc>
-    <lastmod>2018-08-15T09:55:17.100Z</lastmod>
+    <lastmod>2018-08-17T08:40:59.880Z</lastmod>
     <data>
         <display>
         <title>2018年浙江大学暑期夏令营学习记录</title>
         <pubTime>2018-08-02T10:31:16.000Z</pubTime>
         
-        <tag>计算机视觉</tag>
-         
-        <tag>算法</tag>
+        <tag>paper</tag>
          
         <tag>CV</tag>
          
-        <tag>paper</tag>
+        <tag>计算机视觉</tag>
+         
+        <tag>算法</tag>
          
         <tag>夏令营</tag>
          
@@ -33,7 +33,7 @@
     
   <url>
     <loc>http://qichiblog.cn/2018-08-15-Python-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C.html</loc>
-    <lastmod>2018-08-15T05:31:01.946Z</lastmod>
+    <lastmod>2018-08-15T10:18:52.342Z</lastmod>
     <data>
         <display>
         <title>Python: 字符串操作</title>
@@ -191,13 +191,13 @@
         <title>神经网络模型:SqueezeNet</title>
         <pubTime>2018-08-03T12:22:35.000Z</pubTime>
         
-        <tag>深度学习</tag>
-         
-        <tag>计算机视觉</tag>
+        <tag>paper</tag>
          
         <tag>CV</tag>
          
-        <tag>paper</tag>
+        <tag>深度学习</tag>
+         
+        <tag>计算机视觉</tag>
          
          
            
@@ -217,11 +217,11 @@
         <title>Taskonomy论文学习</title>
         <pubTime>2018-07-30T11:24:26.000Z</pubTime>
         
-        <tag>CV</tag>
+        <tag>CVPR</tag>
          
         <tag>paper</tag>
          
-        <tag>CVPR</tag>
+        <tag>CV</tag>
          
          
            
@@ -258,18 +258,16 @@
 
     
   <url>
-    <loc>http://qichiblog.cn/2018-08-01-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E4%BD%8D%E6%95%B0.html</loc>
+    <loc>http://qichiblog.cn/2018-08-02-Find-K-th-Smallest-Pair-Distance.html</loc>
     <lastmod>2018-08-03T11:10:49.726Z</lastmod>
     <data>
         <display>
-        <title>寻找两个排序数组中位数</title>
-        <pubTime>2018-08-01T12:29:42.000Z</pubTime>
+        <title>Find K-th Smallest Pair Distance</title>
+        <pubTime>2018-08-02T02:52:20.000Z</pubTime>
         
         <tag>算法</tag>
          
         <tag>数组</tag>
-         
-        <tag>中位数</tag>
          
         <tag>二分查找</tag>
          
@@ -284,16 +282,18 @@
 
     
   <url>
-    <loc>http://qichiblog.cn/2018-08-02-Find-K-th-Smallest-Pair-Distance.html</loc>
+    <loc>http://qichiblog.cn/2018-08-01-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E4%BD%8D%E6%95%B0.html</loc>
     <lastmod>2018-08-03T11:10:49.726Z</lastmod>
     <data>
         <display>
-        <title>Find K-th Smallest Pair Distance</title>
-        <pubTime>2018-08-02T02:52:20.000Z</pubTime>
+        <title>寻找两个排序数组中位数</title>
+        <pubTime>2018-08-01T12:29:42.000Z</pubTime>
         
         <tag>算法</tag>
          
         <tag>数组</tag>
+         
+        <tag>中位数</tag>
          
         <tag>二分查找</tag>
          
