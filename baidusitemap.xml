@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://qichiblog.cn/2018-08-18-%E4%B8%8Eyujingyi%E6%95%99%E6%8E%88%E9%9D%A2%E8%B0%88%E9%97%AE%E9%A2%98%E5%87%86%E5%A4%87.html</loc>
+    <lastmod>2018-08-18T11:44:09.286Z</lastmod>
+    <data>
+        <display>
+        <title>与yujingyi教授面谈问题准备</title>
+        <pubTime>2018-08-18T11:04:14.000Z</pubTime>
+        
+        <tag>计算机视觉</tag>
+         
+        <tag>想法</tag>
+         
+        <tag>cv</tag>
+         
+        <tag>VR/AR</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://qichiblog.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://qichiblog.cn/2018-08-02-2018%E5%B9%B4%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E6%9A%91%E6%9C%9F%E5%A4%8F%E4%BB%A4%E8%90%A5%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.html</loc>
     <lastmod>2018-08-17T08:40:59.880Z</lastmod>
     <data>
@@ -15,9 +41,9 @@
          
         <tag>CV</tag>
          
-        <tag>计算机视觉</tag>
-         
         <tag>算法</tag>
+         
+        <tag>计算机视觉</tag>
          
         <tag>夏令营</tag>
          
@@ -195,9 +221,9 @@
          
         <tag>CV</tag>
          
-        <tag>深度学习</tag>
-         
         <tag>计算机视觉</tag>
+         
+        <tag>深度学习</tag>
          
          
            
@@ -234,23 +260,25 @@
 
     
   <url>
-    <loc>http://qichiblog.cn/2018-07-31-%E6%B7%B1%E5%BA%A6%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0.html</loc>
+    <loc>http://qichiblog.cn/2018-08-01-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E4%BD%8D%E6%95%B0.html</loc>
     <lastmod>2018-08-03T11:10:49.726Z</lastmod>
     <data>
         <display>
-        <title>深度迁移学习</title>
-        <pubTime>2018-07-31T12:44:03.000Z</pubTime>
+        <title>寻找两个排序数组中位数</title>
+        <pubTime>2018-08-01T12:29:42.000Z</pubTime>
         
-        <tag>深度学习</tag>
+        <tag>算法</tag>
          
-        <tag>迁移学习</tag>
+        <tag>数组</tag>
          
-        <tag>计算机视觉</tag>
+        <tag>中位数</tag>
+         
+        <tag>二分查找</tag>
          
          
            
              
-              <breadCrumb title="迁移学习" url="http://qichiblog.cn/categories/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"/>
+              <breadCrumb title="算法" url="http://qichiblog.cn/categories/%E7%AE%97%E6%B3%95/"/>
           
         </display>
     </data>
@@ -282,25 +310,23 @@
 
     
   <url>
-    <loc>http://qichiblog.cn/2018-08-01-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E4%BD%8D%E6%95%B0.html</loc>
+    <loc>http://qichiblog.cn/2018-07-31-%E6%B7%B1%E5%BA%A6%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0.html</loc>
     <lastmod>2018-08-03T11:10:49.726Z</lastmod>
     <data>
         <display>
-        <title>寻找两个排序数组中位数</title>
-        <pubTime>2018-08-01T12:29:42.000Z</pubTime>
+        <title>深度迁移学习</title>
+        <pubTime>2018-07-31T12:44:03.000Z</pubTime>
         
-        <tag>算法</tag>
+        <tag>计算机视觉</tag>
          
-        <tag>数组</tag>
+        <tag>深度学习</tag>
          
-        <tag>中位数</tag>
-         
-        <tag>二分查找</tag>
+        <tag>迁移学习</tag>
          
          
            
              
-              <breadCrumb title="算法" url="http://qichiblog.cn/categories/%E7%AE%97%E6%B3%95/"/>
+              <breadCrumb title="迁移学习" url="http://qichiblog.cn/categories/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"/>
           
         </display>
     </data>
